@@ -1,0 +1,31 @@
+body {
+    margin: 0;
+  }
+  
+  header {
+    height: 50px;
+    background-color: #4f88ef;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+  }
+  
+  header h1 {
+    text-align: center;
+    color: white;
+    margin: 0;
+    font-family: Bello-Script;
+    font-size: 26px;
+  }
+  
+  header img {
+    position: absolute;
+    right: 16px;
+    transition: .2s;
+  
+  }
+  
+  header img:hover{
+    transform: scale(.8)
+  }
