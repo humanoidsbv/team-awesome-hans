@@ -3,78 +3,86 @@
   src: url("/fonts/proxima-nova-regular.woff")
 }
 
+@font-face {
+  font-family: "BelloScript";
+  src: url("/fonts/bello-script.ttf")
+}
+
 body {
   margin: 0;
 }
 
-@media (max-width: 700px) {
-  header {
-    height: 50px;
-    background-color: #4f88ef;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
-  }
-  
-  header h1 {
-    text-align: center;
-    color: white;
-    margin: 0;
-    font-family: Bello-Script;
-    font-size: 26px;
-  }
-  
-  .nav-btn {
-    position: absolute;
-    right: 16px;
-    transition: .2s;
-    background-color: #4f88ef;
-    padding: 10px;
-    border: none;
-    background: url(./img/group.svg) no-repeat center;
-  }
+header {
+  align-items: center;
+  background-color: #4f88ef;
+  display: flex;
+  flex-direction: column;
+  height: 50px;
+}
 
-  .nav-btn-close {
-    position: absolute;
-    right: 16px;
-    transition: .2s;
-    background-color: #4f88ef;
-    padding: 10px;
-    border: none;
-    background: url(./img/shape.svg) no-repeat center;
-  }
-  
-  .dropdown-content {
-    display: none;
-    position: absolute;
-    flex-direction: column;
-    align-items: center;
-    background-color: #4f88ef;
-    top: 50px;
-    height: 100vh;
-    width: 100%;
-    font-family: ProximaNova;
-    font-size: 24px;
-    padding-top: 50px;
-  }
-  
-  .dropdown-content a {
-    color: white;
-    margin-top: 22px;
-    margin-bottom: 22px;
-    padding: 3px 12px;
-    text-decoration: none;
-    display: block;
-  }
-  
-  .nav-item-active {
-    background-color: #1166a5;
-    border-radius: 4px;
-  }
-  
-  .show {
-    display:flex;
-  }
-  
+.header-show{
+  height: 100vh;
+}
+
+header div {
+  height: 50px;
+}
+
+header h1 {
+  color: white;
+  font-family: BelloScript;
+  font-size: 26px;
+  margin: 0;
+  padding-top: 10px;
+  text-align: center;
+}
+
+.nav-btn {
+  background: url(./img/group.svg) no-repeat center;
+  border: none;
+  padding: 10px;
+  position: absolute;
+  right: 16px;
+  top: 16px;
+  transition: .2s;
+}
+
+.nav-btn-close {
+  background: url(./img/shape.svg) no-repeat center;
+}
+
+.dropdown-content {
+  background-color: #4f88ef;
+  display: none;
+  flex-direction: row;
+  font-family: ProximaNova;
+  font-size: 24px;
+  height: 100vh;
+  justify-content: center;
+  padding-top: 50px;
+  text-align: center;
+  top: 50px;
+  width: 100%;
+}
+
+.dropdown-content a {
+  color: white;
+  display: block;
+  margin-bottom: 44px;
+  padding: 3px 12px;
+  text-decoration: none;
+}
+
+.dropdown-content ul {
+  list-style-type: none;
+  padding: 0
+}
+
+.nav-item-active {
+  background-color: #1166a5;
+  border-radius: 4px;
+}
+
+.show {
+  display:flex;
 }
