@@ -19,11 +19,11 @@ header {
   height: 70px;
 }
 
-.header-show{
+.header-show {
   height: 100vh;
 }
 
-header h1 {
+header > h1 {
   color: white;
   font-family: BelloScript;
   font-size: 26px;
@@ -54,45 +54,46 @@ header h1 {
   justify-content: center;
   padding-top: 50px;
   text-align: center;
-  top: 50px;
   width: 100%;
 }
 
-.dropdown-content a {
+.dropdown-show {
+  display:flex;
+}
+
+.nav-item {
   color: white;
-  display: block;
+  display: inline-block;
   margin-bottom: 44px;
   padding: 3px 12px;
   text-decoration: none;
 }
 
-.dropdown-content ul {
-  list-style-type: none;
-  padding: 0
-}
-
-.nav-item-active {
+.item-active {
   background-color: #1166a5;
   border-radius: 4px;
 }
 
-.show {
-  display:flex;
+.dropdown-content > ul {
+  list-style-type: none;
+  margin-block-end: 0;
+  margin-block-start: 0;
+  padding: 0;
 }
 
-.humanoids-logo{
+.humanoids-logo {
   display: none;
 }
 
-.user-icon{
+.user-icon {
   display: none;
 }
 
-.arrow-down{
+.arrow-down {
   display: none;
 }
 
-.user-btn{
+.user-btn {
   display: none;
 }
 
@@ -126,7 +127,7 @@ header h1 {
     padding: 7px 18px;
   }
 
-  .user-btn{
+  .user-btn {
     background-color: white;
     border-radius: 18px;
     border: none;
@@ -136,7 +137,7 @@ header h1 {
     right: 46px;
     top: 17px;
   }
-  .humanoids-logo{
+  .humanoids-logo {
     display: flex;
     height: 10px;
     position: absolute;
@@ -145,7 +146,7 @@ header h1 {
     width: 75px;
   }
 
-  .user-icon{
+  .user-icon {
     border-radius: 90px;
     display: flex;
     height: 32px;
@@ -155,7 +156,7 @@ header h1 {
     width: 32px;
   }
 
-  .arrow-down{
+  .arrow-down {
     border-radius: 90px;
     color: white;
     display: flex;
