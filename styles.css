@@ -19,7 +19,7 @@ header {
   height: 70px;
 }
 
-.header-active {
+.header--active {
   height: 100vh;
 }
 
@@ -31,7 +31,7 @@ header > h1 {
   text-align: center;
 }
 
-.nav-btn {
+.header__button {
   background: url(./img/group.svg) no-repeat center;
   border: none;
   padding: 10px;
@@ -41,11 +41,11 @@ header > h1 {
   transition: 0.2s;
 }
 
-.nav-btn-close {
+.header__button--close {
   background: url(./img/shape.svg) no-repeat center;
 }
 
-.drawer-content {
+.header__drawer {
   background-color: #4f88ef;
   display: none;
   font-family: ProximaNova;
@@ -57,11 +57,11 @@ header > h1 {
   width: 100%;
 }
 
-.drawer-active {
+.header__drawer--active {
   display:flex;
 }
 
-.nav-item {
+.header__drawer__item{
   color: white;
   display: inline-block;
   margin-bottom: 44px;
@@ -69,31 +69,31 @@ header > h1 {
   text-decoration: none;
 }
 
-.item-active {
+.header__drawer__item--active {
   background-color: #1166a5;
   border-radius: 4px;
 }
 
-.drawer-content > ul {
+.header__drawer > ul {
   list-style-type: none;
   margin-block-end: 0;
   margin-block-start: 0;
   padding: 0;
 }
 
-.humanoids-logo {
+.header__logo {
   display: none;
 }
 
-.user-icon {
+.header__user-icon {
   display: none;
 }
 
-.arrow-down {
+.header__arrow-down {
   display: none;
 }
 
-.user-btn {
+.header__user-button {
   display: none;
 }
 
@@ -106,11 +106,11 @@ header > h1 {
     display: none;
   }
 
-  .nav-btn {
+  .header__button {
     display: none;
   }
 
-  .drawer-content {
+  .header__drawer {
     display: flex;
     flex-direction: column;
     padding: 0;
@@ -121,13 +121,13 @@ header > h1 {
     margin: 0;
   }
 
-  .drawer-content a {
+  .header__drawer a {
     font-size: 14px;
     margin: 0 12px;
     padding: 8px 18px;
   }
 
-  .user-btn {
+  .header__user-button {
     background-color: white;
     border-radius: 18px;
     border: none;
@@ -137,7 +137,7 @@ header > h1 {
     right: 46px;
     top: 18px;
   }
-  .humanoids-logo {
+  .header__logo {
     display: flex;
     height: 10px;
     position: absolute;
@@ -146,7 +146,7 @@ header > h1 {
     width: 75px;
   }
 
-  .user-icon {
+  .header__user-icon {
     border-radius: 90px;
     display: flex;
     height: 32px;
@@ -156,7 +156,7 @@ header > h1 {
     width: 32px;
   }
 
-  .arrow-down {
+  .header__arrow-down {
     border-radius: 90px;
     color: white;
     display: flex;
