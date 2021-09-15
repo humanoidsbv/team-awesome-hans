@@ -1,6 +1,6 @@
 const navButton = document.querySelector(".nav-btn");
-const navDropDown = document.getElementById("nav-dropdown");
-const header = document.getElementById("header");
+const navDropDown = document.querySelector(".dropdown-content");
+const header = document.querySelector(".header");
 
 navButton.addEventListener("click", () => {
     navButton.classList.toggle("nav-btn-close");
