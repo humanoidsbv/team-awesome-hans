@@ -1,31 +1,169 @@
+@font-face {
+  font-family: "ProximaNova";
+  src: url("/fonts/proxima-nova-regular.woff")
+}
+
+@font-face {
+  font-family: "BelloScript";
+  src: url("/fonts/bello-script.ttf")
+}
+
 body {
-    margin: 0;
-  }
-  
+  margin: 0;
+}
+
+header {
+  background-color: #4f88ef;
+  display: flex;
+  flex-direction: column;
+  height: 70px;
+}
+
+.header-active {
+  height: 100vh;
+}
+
+header > h1 {
+  color: white;
+  font-family: BelloScript;
+  font-size: 26px;
+  line-height: 1.4;
+  text-align: center;
+}
+
+.nav-btn {
+  background: url(./img/group.svg) no-repeat center;
+  border: none;
+  padding: 10px;
+  position: absolute;
+  right: 18px;
+  top: 24px;
+  transition: 0.2s;
+}
+
+.nav-btn-close {
+  background: url(./img/shape.svg) no-repeat center;
+}
+
+.drawer-content {
+  background-color: #4f88ef;
+  display: none;
+  font-family: ProximaNova;
+  font-size: 24px;
+  height: 100vh;
+  justify-content: center;
+  padding-top: 50px;
+  text-align: center;
+  width: 100%;
+}
+
+.drawer-active {
+  display:flex;
+}
+
+.nav-item {
+  color: white;
+  display: inline-block;
+  margin-bottom: 44px;
+  padding: 3px 12px;
+  text-decoration: none;
+}
+
+.item-active {
+  background-color: #1166a5;
+  border-radius: 4px;
+}
+
+.drawer-content > ul {
+  list-style-type: none;
+  margin-block-end: 0;
+  margin-block-start: 0;
+  padding: 0;
+}
+
+.humanoids-logo {
+  display: none;
+}
+
+.user-icon {
+  display: none;
+}
+
+.arrow-down {
+  display: none;
+}
+
+.user-btn {
+  display: none;
+}
+
+@media screen and (min-width: 1024px){
   header {
-    height: 50px;
-    background-color: #4f88ef;
+    height: 70px;
+  }
+
+  header > h1 {
+    display: none;
+  }
+
+  .nav-btn {
+    display: none;
+  }
+
+  .drawer-content {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    
+    flex-direction: column;
+    padding: 0;
   }
-  
-  header h1 {
-    text-align: center;
-    color: white;
+
+  nav > ul{
+    display: flex;
     margin: 0;
-    font-family: Bello-Script;
-    font-size: 26px;
   }
-  
-  header img {
+
+  .drawer-content a {
+    font-size: 14px;
+    margin: 0 12px;
+    padding: 8px 18px;
+  }
+
+  .user-btn {
+    background-color: white;
+    border-radius: 18px;
+    border: none;
+    display: flex;
+    padding: 18px 65px;
     position: absolute;
-    right: 16px;
-    transition: .2s;
-  
+    right: 46px;
+    top: 18px;
   }
-  
-  header img:hover{
-    transform: scale(.8)
+  .humanoids-logo {
+    display: flex;
+    height: 10px;
+    position: absolute;
+    right: 90px;
+    top: 30px;
+    width: 75px;
   }
+
+  .user-icon {
+    border-radius: 90px;
+    display: flex;
+    height: 32px;
+    position: absolute;
+    right: 48px;
+    top: 20px;
+    width: 32px;
+  }
+
+  .arrow-down {
+    border-radius: 90px;
+    color: white;
+    display: flex;
+    height: 8px;
+    position: absolute;
+    right: 32px;
+    top: 32px;
+    width: 8px;
+  }
+}
