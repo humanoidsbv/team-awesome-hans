@@ -1,9 +1,12 @@
 import * as Styled from './DrawerButton.style'
 
-function DrawerButton(props){
-    return <Styled.DrawerButton 
-        onClick={() => { props.isOpen ? props.handleClick(true) : props.handleClick(false);}} 
-        isOpen={props.isOpen}/>;
+function DrawerButton({handleClick, isOpen}){
+    return (
+        <Styled.DrawerButton 
+            onClick={() => { isOpen ? handleClick(true) : handleClick(false);}} 
+            isOpen={isOpen}
+        />
+    );
 }
 
 export default DrawerButton;

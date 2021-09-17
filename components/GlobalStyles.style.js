@@ -1,14 +1,13 @@
 import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyles = createGlobalStyle`
-
     @font-face {
-        font-family: "BelloScript";
+        font-family: "Bello Script";
         src: url(/fonts/bello-script.ttf);
     }
 
     @font-face {
-        font-family: "ProximaNova";
+        font-family: "Proxima Nova";
         src: url(/fonts/proxima-nova-regular.woff);
     }
 
