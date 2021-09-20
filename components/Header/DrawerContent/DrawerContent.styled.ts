@@ -28,9 +28,9 @@ export const DrawerContentItemList = styled.ul`
   }
 `;
 
-export const DrawerContentItem = styled.a<{ backgroundColor?: string; borderRadius?: string }>`
-  background-color: ${(props) => props.backgroundColor};
-  border-radius: ${(props) => props.borderRadius};
+export const DrawerContentItem = styled.a<{ isActive?: boolean }>`
+  background-color: ${(props) => (props.isActive ? "hotpink" : "none")};
+  border-radius: ${(props) => (props.isActive ? "4px" : "none")};
   color: white;
   display: inline-block;
   margin-bottom: 44px;
@@ -43,5 +43,3 @@ export const DrawerContentItem = styled.a<{ backgroundColor?: string; borderRadi
     padding: 8px 18px;
   }
 `;
-
-export default DrawerContent;

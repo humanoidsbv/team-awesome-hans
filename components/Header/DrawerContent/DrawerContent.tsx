@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import * as Styled from "./DrawerContent.styled";
 
@@ -7,11 +7,14 @@ interface HeaderProps {
 }
 
 const DrawerContent = ({ isOpen }: HeaderProps) => {
+  const [isActive, setActive] = useState(false);
+  const handleClick = () => setActive(!isActive);
+
   return (
     <Styled.DrawerContent isOpen={isOpen}>
       <Styled.DrawerContentItemList>
         <li>
-          <Styled.DrawerContentItem backgroundColor="hotpink" borderRadius="4px">
+          <Styled.DrawerContentItem onClick={handleClick} isActive={isActive}>
             Timesheets
           </Styled.DrawerContentItem>
         </li>

@@ -3,7 +3,6 @@ import styled from "styled-components";
 export const DrawerButton = styled.button<{ isOpen: boolean }>`
   background: url(${(props) => (props.isOpen ? "/img/shape.svg" : "/img/group.svg")}) no-repeat
     center;
-  border: none;
   padding: 10px;
   position: absolute;
   right: 18px;
@@ -14,5 +13,3 @@ export const DrawerButton = styled.button<{ isOpen: boolean }>`
     display: none;
   }
 `;
-
-export default DrawerButton;

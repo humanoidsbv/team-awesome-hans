@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const UserButton = styled.button`
   display: none;
+
   @media screen and (min-width: 1024px) {
     align-items: center;
     background-color: white;
@@ -18,6 +19,7 @@ export const UserButton = styled.button`
 
 export const Logo = styled.img`
   display: none;
+
   @media screen and (min-width: 1024px) {
     display: flex;
     height: 10px;
@@ -29,6 +31,7 @@ export const Logo = styled.img`
 
 export const UserIcon = styled.img`
   display: none;
+
   @media screen and (min-width: 1024px) {
     border-radius: 90px;
     display: flex;
@@ -41,6 +44,7 @@ export const UserIcon = styled.img`
 
 export const ArrowDown = styled.img`
   display: none;
+
   @media screen and (min-width: 1024px) {
     border-radius: 90px;
     display: flex;
