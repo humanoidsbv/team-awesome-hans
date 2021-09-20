@@ -1,0 +1,36 @@
+{
+  "name": "team-awesome-hans",
+  "version": "1.0.0",
+  "description": "Team Awesome is a Saas solution that can bu used by organizations an their employees for planning projects, tracking time and much more.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/humanoidsbv/team-awesome-hans.git"
+  },
+  "author": "Hans Charbon",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/humanoidsbv/team-awesome-hans/issues"
+  },
+  "homepage": "https://github.com/humanoidsbv/team-awesome-hans#readme",
+  "dependencies": {
+    "next": "^11.1.2",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "styled-components": "^5.3.1"
+  },
+  "devDependencies": {
+    "@humanoids/eslint-config": "^0.0.11",
+    "@humanoids/prettier-config": "0.0.4",
+    "eslint": "^7.32.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "prettier": "2.4.1",
+    "typescript": "^4.4.3"
+  }
+}
