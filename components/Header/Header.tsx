@@ -7,7 +7,7 @@ import DrawerContent from "./DrawerContent/DrawerContent";
 import UserButton from "./UserButton/UserButton";
 import { ArrowDown } from "./UserButton/UserButton.styled";
 
-function Header() {
+const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const handleClick = () => setIsOpen(!isOpen);
 
@@ -20,6 +20,6 @@ function Header() {
       <ArrowDown src="/img/arrow-down.svg" />
     </Styled.Header>
   );
-}
+};
 
 export default Header;
