@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const DrawerContent = styled.nav`
     background-color: #4f88ef;
     display: ${(props) => props.isOpen ? "flex" : "none"};
-    font-family: Proxima Nova;
+    font-family: "Proxima Nova";
     font-size: 24px;
     justify-content: center;
     padding-top: 50px;

@@ -1,11 +1,11 @@
-import * as Styled from './DrawerButton.style'
+import * as Styled from './DrawerButton.styled'
 
 function DrawerButton({handleClick, isOpen}){
     return (
-        <Styled.DrawerButton 
-            onClick={() => { isOpen ? handleClick(true) : handleClick(false);}} 
-            isOpen={isOpen}
-        />
+      <Styled.DrawerButton 
+        onClick={() => { isOpen ? handleClick(true) : handleClick(false);}} 
+        isOpen={isOpen}
+      />
     );
 }
 

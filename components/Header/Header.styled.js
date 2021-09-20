@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const HeaderMobile = styled.header`
+export const Header = styled.header`
     background-color: #4f88ef;
     display: flex;
     flex-direction: column;
@@ -12,5 +12,3 @@ const HeaderMobile = styled.header`
         justify-content: center;
     }
 `
-
-export default HeaderMobile;
