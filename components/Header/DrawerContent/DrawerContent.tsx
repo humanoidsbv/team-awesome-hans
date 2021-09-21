@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 
 import * as Styled from "./DrawerContent.styled";
+import { ArrowDownIcon } from "../../Icon/ArrowDown";
 
 interface HeaderProps {
   isOpen: boolean;
 }
 
-const DrawerContent = ({ isOpen }: HeaderProps) => {
+export const DrawerContent = ({ isOpen }: HeaderProps) => {
   const [isActive, setActive] = useState(false);
   const handleClick = () => setActive(!isActive);
 
@@ -31,8 +32,7 @@ const DrawerContent = ({ isOpen }: HeaderProps) => {
           <Styled.DrawerContentItem>Documents</Styled.DrawerContentItem>
         </li>
       </Styled.DrawerContentItemList>
+      <ArrowDownIcon />
     </Styled.DrawerContent>
   );
 };
-
-export default DrawerContent;

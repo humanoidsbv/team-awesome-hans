@@ -3,12 +3,10 @@ import React from "react";
 import * as Styled from "./DrawerButton.styled";
 
 interface HeaderProps {
-  onClick?: (isOpen: boolean) => void;
   isOpen: boolean;
+  onClick?: (isOpen: boolean) => void;
 }
 
-const DrawerButton = ({ onClick, isOpen }: HeaderProps) => {
+export const DrawerButton = ({ isOpen, onClick }: HeaderProps) => {
   return <Styled.DrawerButton onClick={() => onClick(isOpen)} isOpen={isOpen} />;
 };
-
-export default DrawerButton;

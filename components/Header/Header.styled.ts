@@ -7,6 +7,7 @@ export const Header = styled.header<{ isOpen: boolean }>`
   height: ${(props) => (props.isOpen ? "100vh" : "70px")};
   overflow: hidden;
   transition: all 0.3s ease-out;
+  width: 100%;
 
   @media screen and (min-width: 1024px) {
     justify-content: center;
