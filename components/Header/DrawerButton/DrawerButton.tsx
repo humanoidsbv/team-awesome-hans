@@ -7,8 +7,6 @@ interface HeaderProps {
   isOpen: boolean;
 }
 
-const DrawerButton = ({ onClick, isOpen }: HeaderProps) => {
+export const DrawerButton = ({ onClick, isOpen }: HeaderProps) => {
   return <Styled.DrawerButton onClick={() => onClick(isOpen)} isOpen={isOpen} />;
 };
-
-export default DrawerButton;

@@ -4,6 +4,7 @@ export const Header = styled.header<{ isOpen: boolean }>`
   background-color: #4f88ef;
   display: flex;
   flex-direction: column;
+  width: 100vw;
   height: ${(props) => (props.isOpen ? "100vh" : "70px")};
   overflow: hidden;
   transition: all 0.3s ease-out;
