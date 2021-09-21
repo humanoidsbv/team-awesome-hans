@@ -1,17 +1,17 @@
 import styled from "styled-components";
 
 export const Primary = styled.button`
-  color: white;
-  font-family: "Proxima Nova";
+  align-items: center;
   background-image: linear-gradient(#39b54a, #34aa44);
-  border: solid 1px #249533;
   border-radius: 4px;
-  padding: 10px;
+  border: solid 1px #249533;
+  color: white;
   display: flex;
-  width: 100vw;
+  font-family: "Proxima Nova";
   font-size: 14px;
   justify-content: center;
-  align-items: center;
+  padding: 10px;
+  width: 100%;
 
   span {
     flex: 1;
@@ -19,6 +19,5 @@ export const Primary = styled.button`
 `;
 
 export const Secondary = styled.button`
-  width: 90vw;
   background-color: red;
 `;

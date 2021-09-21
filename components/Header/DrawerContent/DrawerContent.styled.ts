@@ -13,8 +13,8 @@ export const DrawerContent = styled.nav<{ isOpen: boolean }>`
   @media screen and (min-width: 1024px) {
     display: flex;
     flex-direction: row;
-    padding: 0;
     justify-content: flex-start;
+    padding: 0;
   }
 
   ul {
