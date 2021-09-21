@@ -8,7 +8,7 @@ interface ButtonProps {
   type?: "Primary" | "Secondary";
 }
 
-export const Button = ({ onClick, type, children }: ButtonProps) => {
+export const Button = ({ children, onClick, type }: ButtonProps) => {
   return (
     <>
       {type === "Primary" ? (
