@@ -1,8 +1,7 @@
 import styled from "styled-components";
 
-export const Wrapper = styled.div`
+export const TimeEntry = styled.ul`
   display: flex;
-  justify-content: center;
-  padding: 24px 16px;
   flex-direction: column;
+  padding-inline-start: 0px;
 `;

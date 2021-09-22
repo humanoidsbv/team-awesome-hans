@@ -20,10 +20,6 @@ export const DrawerContent = styled.nav<{ isOpen: boolean }>`
   ul {
     flex: 1;
   }
-
-  div {
-    margin: 0 30px 0 5px;
-  }
 `;
 
 export const DrawerContentItemList = styled.ul`
