@@ -3,16 +3,16 @@ import React from "react";
 import * as Styled from "./EntryDate.styled";
 
 interface EntryDateProps {
-  startTimestamp: string;
+  startDate: string;
 }
 
-export const EntryDate = ({ startTimestamp }: EntryDateProps) => {
-  const date = new Date(startTimestamp);
-  const currentDayOfMonth = date.getDate();
-  const currentMonth = date.getMonth();
-  const currentYear = date.getFullYear();
+export const EntryDate = ({ startDate }: EntryDateProps) => {
+  const date = new Date(startDate);
+  const formatedCurrentDate = date.toLocaleDateString("nl-NL", {
+    day: "numeric",
+    month: "numeric",
+    year: "numeric",
+  });
 
-  const dateString = `${currentDayOfMonth}-${currentMonth}-${currentYear}`;
-
-  return <Styled.EntryDate>{dateString}</Styled.EntryDate>;
+  return <Styled.EntryDate>{formatedCurrentDate}</Styled.EntryDate>;
 };
