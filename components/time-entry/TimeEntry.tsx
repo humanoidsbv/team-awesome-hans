@@ -26,7 +26,9 @@ export const TimeEntry = ({
     <Styled.TimeEntry isBottom={isBottom} isMiddle={isMiddle} isTop={isTop}>
       <span>{client}</span>
       <span>
+        {/* eslint-disable */}
         {startTime} - {stopTime}
+        {/* eslint-enable */}
       </span>
     </Styled.TimeEntry>
   );
