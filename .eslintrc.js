@@ -3,5 +3,6 @@ module.exports = {
   rules: {
     "no-unused-vars": "off",
     "@typescript-eslint/no-unused-vars": "error",
+    "react/jsx-one-expression-per-line": { allow: "none" | "literal" | "single-child" },
   },
 };

@@ -1,9 +1,9 @@
 import React from "react";
 
-import { EntryDate } from "../EntryDate/EntryDate";
+import { EntryDate } from "../entry-date/EntryDate";
 import { getDate } from "../../services/date";
 import { ITimeEntry } from "../../fixtures/time-entries";
-import { TimeEntry } from "../TimeEntry/TimeEntry";
+import { TimeEntry } from "../time-entry/TimeEntry";
 import { TimeEntryContainer } from "./TimeEntries.styled";
 
 interface TimeEntriesProps {
@@ -13,10 +13,10 @@ interface TimeEntriesProps {
 export const TimeEntries = ({ timeEntries }: TimeEntriesProps) => {
   return (
     <>
-      {timeEntries.map((timeEntry, i, array) => {
+      {timeEntries.map((timeEntry, i) => {
         const currentDate = getDate(timeEntry.startTimestamp);
-        const nextDate = getDate(array[i + 1]?.startTimestamp);
-        const previousDate = getDate(array[i - 1]?.startTimestamp);
+        const nextDate = getDate(timeEntries[i + 1]?.startTimestamp);
+        const previousDate = getDate(timeEntries[i - 1]?.startTimestamp);
 
         const isBottom = currentDate !== nextDate && currentDate === previousDate;
         const isMiddle = currentDate === nextDate && currentDate === previousDate;

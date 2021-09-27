@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 
-import { DrawerButton } from "../DrawerButton/DrawerButton";
-import { DrawerContent } from "../DrawerContent/DrawerContent";
-import { UserButton } from "../UserButton/UserButton";
+import { DrawerButton } from "../drawer-button/DrawerButton";
+import { DrawerContent } from "../drawer-content/DrawerContent";
+import { UserButton } from "../user-button/UserButton";
 import * as Styled from "./Header.styled";
 
 export const Header = () => {

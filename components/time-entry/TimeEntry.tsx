@@ -12,17 +12,22 @@ interface TimeEntryProps {
   stopDate: string;
 }
 
-export const TimeEntry = ({ client, isBottom, isMiddle, isTop, startDate, stopDate }: TimeEntryProps) => {
+export const TimeEntry = ({
+  client,
+  isBottom,
+  isMiddle,
+  isTop,
+  startDate,
+  stopDate,
+}: TimeEntryProps) => {
   const startTime = getDateTime(startDate);
   const stopTime = getDateTime(stopDate);
   return (
-    <>
-      <Styled.TimeEntry isBottom={isBottom} isMiddle={isMiddle} isTop={isTop}>
-        <span>{client}</span>
-        <span>
-          {startTime} - {stopTime}
-        </span>
-      </Styled.TimeEntry>
-    </>
+    <Styled.TimeEntry isBottom={isBottom} isMiddle={isMiddle} isTop={isTop}>
+      <span>{client}</span>
+      <span>
+        {startTime} - {stopTime}
+      </span>
+    </Styled.TimeEntry>
   );
 };

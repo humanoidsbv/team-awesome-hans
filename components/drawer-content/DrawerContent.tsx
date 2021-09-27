@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { ArrowDownIcon } from "../Icon/ArrowDown";
+import { ArrowDownIcon } from "../icon/ArrowDown";
 import * as Styled from "./DrawerContent.styled";
 
 interface HeaderProps {

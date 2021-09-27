@@ -1,6 +1,12 @@
 import styled from "styled-components";
 
-export const TimeEntry = styled.div<{ isBottom: boolean; isMiddle: boolean; isTop: boolean }>`
+interface StyledTimeEntryProps {
+  isBottom: boolean;
+  isMiddle: boolean;
+  isTop: boolean;
+}
+
+export const TimeEntry = styled.div<StyledTimeEntryProps>`
   background-color: #fff;
   border-bottom-right-radius: 4px;
   border-top-right-radius: 4px;

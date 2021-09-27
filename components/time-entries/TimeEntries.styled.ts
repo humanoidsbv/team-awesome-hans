@@ -1,10 +1,12 @@
 import styled from "styled-components";
 
-export const TimeEntryContainer = styled.div<{
+interface TimeEntryProps {
   isBottom: boolean;
   isMiddle: boolean;
   isTop: boolean;
-}>`
+}
+
+export const TimeEntryContainer = styled.div<TimeEntryProps>`
   border-left: solid 4px #4f88ef;
   border-radius: 4px;
 
