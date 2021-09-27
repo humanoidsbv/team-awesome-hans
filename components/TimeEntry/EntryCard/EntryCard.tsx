@@ -1,4 +1,5 @@
 import React from "react";
+import { getDateTime } from "../../../sevices/date";
 
 import * as Styled from "./EntryCard.styled";
 
@@ -6,27 +7,18 @@ interface EntryCardProps {
   startDate: string;
   stopDate: string;
   client: string;
-  borderState: string;
+  border: string;
 }
 
-export const EntryCard = ({ client, startDate, stopDate, borderState }: EntryCardProps) => {
-  const dateStart = new Date(startDate);
-  const dateStop = new Date(stopDate);
-  const formattedStartTime = dateStart.toLocaleTimeString("nl-NL", {
-    hour: "2-digit",
-    minute: "2-digit",
-  });
-  const formattedStopTime = dateStop.toLocaleTimeString("nl-NL", {
-    hour: "2-digit",
-    minute: "2-digit",
-  });
+export const EntryCard = ({ client, startDate, stopDate, border }: EntryCardProps) => {
+  const startTime = getDateTime(startDate);
+  const stopTime = getDateTime(stopDate);
   return (
     <>
-      {}
-      <Styled.EntryCard borderState={borderState}>
+      <Styled.EntryCard border={border}>
         <span>{client}</span>
         <span>
-          {formattedStartTime}-{formattedStopTime}
+          {startTime} - {stopTime}
         </span>
       </Styled.EntryCard>
     </>

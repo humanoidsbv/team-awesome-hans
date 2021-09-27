@@ -1,4 +1,5 @@
 import React from "react";
+import { getDate } from "../../../sevices/date";
 
 import * as Styled from "./EntryDate.styled";
 
@@ -7,12 +8,6 @@ interface EntryDateProps {
 }
 
 export const EntryDate = ({ startDate }: EntryDateProps) => {
-  const date = new Date(startDate);
-  const formatedCurrentDate = date.toLocaleDateString("nl-NL", {
-    day: "numeric",
-    month: "numeric",
-    year: "numeric",
-  });
-
-  return <Styled.EntryDate>{formatedCurrentDate}</Styled.EntryDate>;
+  const date = getDate(startDate);
+  return <Styled.EntryDate>{date}</Styled.EntryDate>;
 };
