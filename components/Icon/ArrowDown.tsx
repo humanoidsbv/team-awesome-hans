@@ -1,11 +1,12 @@
 import React from "react";
 
+import * as Styled from "./ArrowDown.styled";
 import ArrowDown from "../../public/img/arrow-down.svg";
 
 export const ArrowDownIcon = () => {
   return (
-    <div>
+    <Styled.ArrowDown>
       <ArrowDown />
-    </div>
+    </Styled.ArrowDown>
   );
 };
