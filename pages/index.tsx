@@ -6,7 +6,7 @@ import { GlobalStyles } from "../components/global";
 import { Header } from "../components/Header/Header";
 import { mockTimeEntries } from "../fixtures/time-entries";
 import { PlusIcon } from "../components/Icon/PlusIcon";
-import { TimeEntries } from "../components/TimeEntry/TimeEntries";
+import { TimeEntries } from "../components/TimeEntries/TimeEntries";
 import { Wrapper } from "../components/Wrapper/Wrapper.styled";
 
 const App = () => {
@@ -24,7 +24,7 @@ const App = () => {
   };
 
   return (
-    <div>
+    <>
       <Head>
         <link rel="shortcut icon" href="/img/favicon.ico" />
         <title>team awesome</title>
@@ -38,7 +38,7 @@ const App = () => {
         </Button>
         <TimeEntries timeEntries={timeEntries} />
       </Wrapper>
-    </div>
+    </>
   );
 };
 

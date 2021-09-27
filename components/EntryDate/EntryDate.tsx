@@ -1,6 +1,6 @@
 import React from "react";
-import { getDate } from "../../../sevices/date";
 
+import { getDate } from "../../services/date";
 import * as Styled from "./EntryDate.styled";
 
 interface EntryDateProps {
@@ -8,6 +8,5 @@ interface EntryDateProps {
 }
 
 export const EntryDate = ({ startDate }: EntryDateProps) => {
-  const date = getDate(startDate);
-  return <Styled.EntryDate>{date}</Styled.EntryDate>;
+  return <Styled.EntryDate>{getDate(startDate)}</Styled.EntryDate>;
 };

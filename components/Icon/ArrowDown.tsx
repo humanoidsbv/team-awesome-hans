@@ -1,7 +1,7 @@
 import React from "react";
 
-import ArrowDown from "../../public/img/arrow-down.svg";
 import * as Styled from "./ArrowDown.styled";
+import ArrowDown from "../../public/img/arrow-down.svg";
 
 export const ArrowDownIcon = () => {
   return (
