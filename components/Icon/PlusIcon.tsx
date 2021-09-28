@@ -1,6 +1,6 @@
 import React from "react";
 
-import Plus from "../../public/img/plus-icon.svg";
+import Plus from "../../public/images/plus-icon.svg";
 
 export const PlusIcon = () => {
   return (

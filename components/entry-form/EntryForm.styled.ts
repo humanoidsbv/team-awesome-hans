@@ -2,8 +2,8 @@ import styled from "styled-components";
 
 export const EntryFormContainer = styled.div`
   background-color: #f5f8fa;
-  border-radius: 4px;
   border: solid 1px #e6eaee;
+  border-radius: 4px;
   color: #68768c;
   display: flex;
   font-family: "Proxima Nova";
@@ -18,20 +18,20 @@ export const EntryForm = styled.form`
   flex-direction: column;
   width: 100%;
 
-	button{
-		background: none;
-		display:flex;
-	}
-	
-	img{
-		height: 8px;
-		width: 8px;
-	}
+  button {
+    background: none;
+    display: flex;
+  }
+
+  img {
+    height: 8px;
+    width: 8px;
+  }
 
   input {
     background-image: linear-gradient(to top, #f2f4f7, #fff);
-    border-radius: 4px;
     border: solid 1px #ced0da;
+    border-radius: 4px;
     box-sizing: border-box;
     color: #354052;
     height: 36px;
@@ -56,8 +56,8 @@ export const EntryForm = styled.form`
   input[type="submit"] {
     align-items: center;
     background: #35ac45;
-    border-radius: 4px;
     border: solid 1px #249533;
+    border-radius: 4px;
     color: white;
     display: flex;
     font-family: "Proxima Nova";
@@ -67,5 +67,11 @@ export const EntryForm = styled.form`
     margin-top: 26px;
     padding: 10px;
     width: 100%;
+  }
+
+  input[disabled] {
+    border: 1px solid #999999;
+    background: #cccccc;
+    color: #666666;
   }
 `;

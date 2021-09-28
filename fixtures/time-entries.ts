@@ -1,11 +1,19 @@
-export interface ITimeEntry {
+export interface FormatedTimeEntryInterface {
   client: string;
   id: number;
   startTimestamp: string;
   stopTimestamp: string;
 }
 
-export const mockTimeEntries: ITimeEntry[] = [
+export interface TimeEntryInterface {
+  activity: string;
+  date: string;
+  employer: string;
+  from: string;
+  to: string;
+}
+
+export const mockTimeEntries: FormatedTimeEntryInterface[] = [
   {
     id: 0.8524250995148186,
     client: "Heineken",
