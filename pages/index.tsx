@@ -8,19 +8,14 @@ import { mockTimeEntries } from "../fixtures/time-entries";
 import { PlusIcon } from "../components/icon/PlusIcon";
 import { TimeEntries } from "../components/time-entries/TimeEntries";
 import { Wrapper } from "../components/wrapper/Wrapper.styled";
+import { EntryForm } from "../components/entry-form/EntryForm";
 
 const App = () => {
   const [timeEntries, setTimeEntries] = useState(mockTimeEntries);
+  const [isOpen, setIsOpen] = useState(false);
+
   const handleClick = () => {
-    setTimeEntries([
-      ...timeEntries,
-      {
-        id: 0.8524250995148188,
-        client: "Port of Rotterdam",
-        startTimestamp: "2019-09-26T16:00:00.000Z",
-        stopTimestamp: "2019-09-26T18:00:00.000Z",
-      },
-    ]);
+    setIsOpen(!isOpen);
   };
 
   return (
@@ -32,10 +27,13 @@ const App = () => {
       <GlobalStyles />
       <Header />
       <Wrapper>
-        <Button type="Primary" onClick={handleClick}>
-          <span>New time entry</span>
-          <PlusIcon />
-        </Button>
+        {!isOpen && (
+          <Button type="Primary" onClick={handleClick}>
+            <span>New time entry</span>
+            <PlusIcon />
+          </Button>
+        )}
+        {isOpen && <EntryForm onClick={handleClick} />}
         <TimeEntries timeEntries={timeEntries} />
       </Wrapper>
     </>
