@@ -11,6 +11,10 @@ export const GlobalStyles = createGlobalStyle`
         src: url(/fonts/proxima-nova-regular.woff);
     }
 
+    *{
+        font-family: Proxima Nova;
+    }
+
     body{
         margin: 0;
         padding: 0;

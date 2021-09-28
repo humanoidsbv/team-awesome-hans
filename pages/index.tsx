@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import Head from "next/head";
 
 import { Button } from "../components/button/Button";
+import { EntryForm } from "../components/entry-form/EntryForm";
 import { GlobalStyles } from "../components/global";
 import { Header } from "../components/header/Header";
 import { mockTimeEntries } from "../fixtures/time-entries";
 import { PlusIcon } from "../components/icon/PlusIcon";
 import { TimeEntries } from "../components/time-entries/TimeEntries";
 import { Wrapper } from "../components/wrapper/Wrapper.styled";
-import { EntryForm } from "../components/entry-form/EntryForm";
 
 const App = () => {
   const [timeEntries, setTimeEntries] = useState(mockTimeEntries);
@@ -33,7 +33,7 @@ const App = () => {
             <PlusIcon />
           </Button>
         )}
-        {isOpen && <EntryForm onClick={handleClick} />}
+        {isOpen && <EntryForm onClose={handleClick} />}
         <TimeEntries timeEntries={timeEntries} />
       </Wrapper>
     </>
