@@ -24,3 +24,27 @@ export const HeaderTitle = styled.h1`
     display: none;
   }
 `;
+
+export const PageHeader = styled.div`
+  display: none;
+
+  @media screen and (min-width: 1024px) {
+    align-items: center;
+    border-bottom: solid 1px #e6eaee;
+    display: flex;
+    height: 70px;
+    padding: 0 30px;
+  }
+
+  .divider {
+    background: #dfe3e9;
+    height: 14px;
+    margin: 0 14px;
+    width: 1px;
+  }
+
+  .entry-counter {
+    color: #7f8fa4;
+    font-size: 14px;
+  }
+`;

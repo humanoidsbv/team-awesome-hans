@@ -1,19 +1,22 @@
 import React from "react";
 
 import { EntryDate } from "../entry-date/EntryDate";
+import { FormattedTimeEntryInterface } from "../../fixtures/time-entries";
 import { getDate } from "../../services/date";
-import { ITimeEntry } from "../../fixtures/time-entries";
 import { TimeEntry } from "../time-entry/TimeEntry";
 import { TimeEntryContainer } from "./TimeEntries.styled";
 
 interface TimeEntriesProps {
-  timeEntries: ITimeEntry[];
+  onCount: (length: number) => void;
+  timeEntries: FormattedTimeEntryInterface[];
 }
 
-export const TimeEntries = ({ timeEntries }: TimeEntriesProps) => {
+export const TimeEntries = ({ timeEntries, onCount }: TimeEntriesProps) => {
   return (
     <>
       {timeEntries.map((timeEntry, i) => {
+        onCount(timeEntries.length);
+
         const currentDate = getDate(timeEntry.startTimestamp);
         const nextDate = getDate(timeEntries[i + 1]?.startTimestamp);
         const previousDate = getDate(timeEntries[i - 1]?.startTimestamp);

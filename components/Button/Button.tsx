@@ -12,7 +12,9 @@ export const Button = ({ children, onClick, type }: ButtonProps) => {
   return (
     <>
       {type === "Primary" ? (
-        <Styled.Primary onClick={onClick}>{children}</Styled.Primary>
+        <Styled.Primary className="new-entry-time" onClick={onClick}>
+          {children}
+        </Styled.Primary>
       ) : (
         <Styled.Secondary onClick={onClick} />
       )}

@@ -11,8 +11,13 @@ import { TimeEntryInterface, mockTimeEntries } from "../fixtures/time-entries";
 import { Wrapper } from "../components/wrapper/Wrapper.styled";
 
 const App = () => {
-  const [timeEntries, setTimeEntries] = useState(mockTimeEntries);
+  const [entryCount, setEntryCount] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
+  const [timeEntries, setTimeEntries] = useState(mockTimeEntries);
+
+  const handleCount = (length) => {
+    setEntryCount(length);
+  };
 
   const handleClick = () => {
     setIsOpen(!isOpen);
@@ -35,7 +40,7 @@ const App = () => {
         <title>team awesome</title>
       </Head>
       <GlobalStyles />
-      <Header />
+      <Header entryCount={entryCount} />
       <Wrapper>
         {!isOpen && (
           <Button onClick={handleClick} type="Primary">
@@ -43,8 +48,8 @@ const App = () => {
             <PlusIcon />
           </Button>
         )}
-        {isOpen && <EntryForm onClose={handleClick} onSubmit={handleTimeEntrySubmit} />}
-        <TimeEntries timeEntries={timeEntries} />
+        <EntryForm isOpen={isOpen} onClose={handleClick} onSubmit={handleTimeEntrySubmit} />
+        <TimeEntries onCount={handleCount} timeEntries={timeEntries} />
       </Wrapper>
     </>
   );
