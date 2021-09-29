@@ -1,5 +1,9 @@
 import styled from "styled-components";
 
+interface TimeEntryFormProps {
+  isValid: boolean;
+}
+
 export const EntryFormContainer = styled.div`
   background-color: #f5f8fa;
   border: solid 1px #e6eaee;
@@ -13,7 +17,7 @@ export const EntryFormContainer = styled.div`
   padding: 16px;
 `;
 
-export const EntryForm = styled.form`
+export const EntryForm = styled.form<TimeEntryFormProps>`
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -67,11 +71,13 @@ export const EntryForm = styled.form`
     margin-top: 26px;
     padding: 10px;
     width: 100%;
-  }
 
-  input[disabled] {
-    border: 1px solid #999999;
-    background: #cccccc;
-    color: #666666;
+    ${(props) =>
+      !props.isValid &&
+      `
+      border: 1px solid #999999;
+      background: #cccccc;
+      color: #666666;
+    `}
   }
 `;

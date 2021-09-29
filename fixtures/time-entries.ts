@@ -1,4 +1,4 @@
-export interface FormatedTimeEntryInterface {
+export interface FormattedTimeEntryInterface {
   client: string;
   id: number;
   startTimestamp: string;
@@ -13,7 +13,7 @@ export interface TimeEntryInterface {
   to: string;
 }
 
-export const mockTimeEntries: FormatedTimeEntryInterface[] = [
+export const mockTimeEntries: FormattedTimeEntryInterface[] = [
   {
     id: 0.8524250995148186,
     client: "Heineken",

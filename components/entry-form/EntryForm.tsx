@@ -33,7 +33,7 @@ export const EntryForm = ({ onClose, onSubmit }: EntryFormProps) => {
 
   return (
     <Styled.EntryFormContainer>
-      <Styled.EntryForm onSubmit={handleSubmit} ref={formRef}>
+      <Styled.EntryForm onSubmit={handleSubmit} ref={formRef} isValid={isFormValid}>
         <label htmlFor="employer">
           <div>
             EMPLOYER
@@ -89,7 +89,6 @@ export const EntryForm = ({ onClose, onSubmit }: EntryFormProps) => {
           </label>
           <label htmlFor="to">
             TO
-            <br />
             <input
               id="to"
               name="to"
@@ -100,8 +99,7 @@ export const EntryForm = ({ onClose, onSubmit }: EntryFormProps) => {
             />
           </label>
         </div>
-        {!isFormValid && <input type="submit" value="Add" disabled />}
-        {isFormValid && <input type="submit" value="Add" />}
+        <input type="submit" value="Add" />
       </Styled.EntryForm>
     </Styled.EntryFormContainer>
   );

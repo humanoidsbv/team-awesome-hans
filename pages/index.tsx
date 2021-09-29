@@ -19,13 +19,13 @@ const App = () => {
   };
 
   const handleTimeEntrySubmit = (timeEntry: TimeEntryInterface) => {
-    const formatedTimeEntry = {
+    const formattedTimeEntry = {
       id: Math.random(),
       client: timeEntry.employer,
       startTimestamp: new Date(`${timeEntry.date}T${timeEntry.from}`).toISOString(),
       stopTimestamp: new Date(`${timeEntry.date}T${timeEntry.to}`).toISOString(),
     };
-    setTimeEntries([...timeEntries, formatedTimeEntry]);
+    setTimeEntries([...timeEntries, formattedTimeEntry]);
   };
 
   return (
