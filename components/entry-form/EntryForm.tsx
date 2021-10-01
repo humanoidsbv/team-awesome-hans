@@ -9,19 +9,23 @@ interface EntryFormProps {
 }
 
 const defaultForm = {
-  activity: "Design",
-  date: "2021-09-28",
-  employer: "Humanoids",
+  date: new Date().toISOString().substr(0, 10),
   from: "09:00",
   to: "17:00",
 };
 
 export const EntryForm = ({ onClose, onSubmit, isOpen }: EntryFormProps) => {
+  const [isFormValid, setIsFormValid] = useState(false);
+  const [isInputValid, setIsInputValid] = useState<any>({});
   const [newTimeEntry, setNewTimeEntry] = useState(defaultForm);
-  const [isFormValid, setIsFormValid] = useState(true);
+
+  const handleBlur = (event: any) => {
+    setIsInputValid({ ...isInputValid, [event.target.name]: event.target.checkValidity() });
+  };
+
   const formRef = useRef<HTMLFormElement>(null);
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (event: any) => {
     setNewTimeEntry({ ...newTimeEntry, [event.target.name]: event.target.value });
     setIsFormValid(formRef.current?.checkValidity());
   };
@@ -36,79 +40,84 @@ export const EntryForm = ({ onClose, onSubmit, isOpen }: EntryFormProps) => {
     <>
       <Styled.Title>New time entry</Styled.Title>
       <Styled.EntryFormContainer isOpen={isOpen}>
-        <Styled.EntryForm
-          onSubmit={handleSubmit}
-          ref={formRef}
-          isValid={isFormValid}
-          isOpen={isOpen}
-        >
-          <label htmlFor="employer">
+        <Styled.EntryForm isOpen={isOpen} onSubmit={handleSubmit} ref={formRef}>
+          <Styled.TextLabel className="employer" htmlFor="employer">
             <div>
               employer
-              <button type="button" onClick={onClose}>
-                <img src="/images/close.svg" alt="close" />
+              <button onClick={onClose} type="button">
+                <img alt="close" src="/images/close.svg" />
               </button>
             </div>
-            <input
+            <Styled.Input
               id="employer"
+              isInputValid={isInputValid.employer !== false}
               name="employer"
+              onBlur={handleBlur}
               onChange={handleChange}
-              type="text"
-              value={newTimeEntry.employer}
+              placeholder="Employer"
               required
+              type="text"
             />
-          </label>
-          <label htmlFor="activity">
+          </Styled.TextLabel>
+          <Styled.TextLabel htmlFor="activity">
             activity
             <br />
-            <input
+            <Styled.Input
               id="activity"
+              isInputValid={isInputValid.activity !== false}
               name="activity"
+              onBlur={handleBlur}
               onChange={handleChange}
-              type="text"
-              value={newTimeEntry.activity}
+              placeholder="Activity"
               required
+              type="text"
             />
-          </label>
-          <label htmlFor="date">
+          </Styled.TextLabel>
+          <Styled.DateLabel htmlFor="date">
             date
             <br />
-            <input
+            <Styled.Input
               id="date"
+              isInputValid={isInputValid.date !== false}
               name="date"
+              onBlur={handleBlur}
               onChange={handleChange}
+              required
               type="date"
               value={newTimeEntry.date}
-              required
             />
-          </label>
+          </Styled.DateLabel>
           <div>
-            <label htmlFor="from">
+            <Styled.Label htmlFor="from">
               from
               <br />
-              <input
+              <Styled.Input
                 id="from"
+                isInputValid={isInputValid.from !== false}
                 name="from"
+                onBlur={handleBlur}
                 onChange={handleChange}
+                required
                 type="time"
                 value={newTimeEntry.from}
-                required
               />
-            </label>
-            <label htmlFor="to">
+            </Styled.Label>
+            <Styled.Label htmlFor="to">
               to
-              <input
+              <Styled.Input
                 id="to"
+                isInputValid={isInputValid.to !== false}
                 name="to"
+                onBlur={handleBlur}
                 onChange={handleChange}
+                required
                 type="time"
                 value={newTimeEntry.to}
-                required
               />
-            </label>
+            </Styled.Label>
           </div>
           <div className="add-time-entry">
-            <input type="submit" value="Add" />
+            <Styled.SubmitInput disabled={!isFormValid} type="submit" value="Add" />
           </div>
         </Styled.EntryForm>
       </Styled.EntryFormContainer>

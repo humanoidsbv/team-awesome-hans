@@ -7,16 +7,13 @@ import { TimeEntry } from "../time-entry/TimeEntry";
 import { TimeEntryContainer } from "./TimeEntries.styled";
 
 interface TimeEntriesProps {
-  onCount: (length: number) => void;
   timeEntries: FormattedTimeEntryInterface[];
 }
 
-export const TimeEntries = ({ timeEntries, onCount }: TimeEntriesProps) => {
+export const TimeEntries = ({ timeEntries }: TimeEntriesProps) => {
   return (
     <>
-      {timeEntries.map((timeEntry, i) => {
-        onCount(timeEntries.length);
-
+      {[...timeEntries].map((timeEntry, i) => {
         const currentDate = getDate(timeEntry.startTimestamp);
         const nextDate = getDate(timeEntries[i + 1]?.startTimestamp);
         const previousDate = getDate(timeEntries[i - 1]?.startTimestamp);

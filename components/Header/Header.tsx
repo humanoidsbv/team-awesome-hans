@@ -6,7 +6,7 @@ import { UserButton } from "../user-button/UserButton";
 import * as Styled from "./Header.styled";
 
 interface HeaderProps {
-  entryCount: number;
+  entryCount: any;
 }
 
 export const Header = ({ entryCount }: HeaderProps) => {
@@ -24,9 +24,11 @@ export const Header = ({ entryCount }: HeaderProps) => {
       <Styled.PageHeader>
         <span>Timesheets</span>
         <div className="divider" />
-        {/* eslint-disable */}
-        <span className="entry-counter">{entryCount} Entries</span>
-        {/* eslint-enable */}
+        <span className="entry-counter">
+          {entryCount.length}
+          {` `}
+          Entries
+        </span>
       </Styled.PageHeader>
     </div>
   );
