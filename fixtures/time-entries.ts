@@ -1,11 +1,11 @@
-export interface ITimeEntry {
+export interface TimeEntryInterface {
   client: string;
   id: number;
   startTimestamp: string;
   stopTimestamp: string;
 }
 
-export const mockTimeEntries: ITimeEntry[] = [
+export const mockTimeEntries: TimeEntryInterface[] = [
   {
     id: 0.8524250995148186,
     client: "Heineken",

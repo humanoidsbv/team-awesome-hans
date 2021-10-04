@@ -2,42 +2,44 @@ import React, { useState } from "react";
 import Head from "next/head";
 
 import { Button } from "../components/button/Button";
+import { EntryForm } from "../components/entry-form/EntryForm";
 import { GlobalStyles } from "../components/global";
 import { Header } from "../components/header/Header";
-import { mockTimeEntries } from "../fixtures/time-entries";
-import { PlusIcon } from "../components/icon/PlusIcon";
+import { mockTimeEntries, TimeEntryInterface } from "../fixtures/time-entries";
+import { PageContainer } from "../components/PageContainer/PageContainer.styled";
 import { TimeEntries } from "../components/time-entries/TimeEntries";
-import { Wrapper } from "../components/wrapper/Wrapper.styled";
+import Plus from "../public/images/plus-icon.svg";
 
 const App = () => {
+  const [isOpen, setIsOpen] = useState(false);
   const [timeEntries, setTimeEntries] = useState(mockTimeEntries);
+
   const handleClick = () => {
-    setTimeEntries([
-      ...timeEntries,
-      {
-        id: 0.8524250995148188,
-        client: "Port of Rotterdam",
-        startTimestamp: "2019-09-26T16:00:00.000Z",
-        stopTimestamp: "2019-09-26T18:00:00.000Z",
-      },
-    ]);
+    setIsOpen(!isOpen);
+  };
+
+  const handleTimeEntrySubmit = (newTimeEntry: TimeEntryInterface) => {
+    setTimeEntries([...timeEntries, newTimeEntry]);
   };
 
   return (
     <>
       <Head>
-        <link rel="shortcut icon" href="/img/favicon.ico" />
+        <link rel="shortcut icon" href="/images/favicon.ico" />
         <title>team awesome</title>
       </Head>
       <GlobalStyles />
-      <Header />
-      <Wrapper>
-        <Button type="Primary" onClick={handleClick}>
-          <span>New time entry</span>
-          <PlusIcon />
-        </Button>
+      <Header title="Timesheets" subtitle={`${timeEntries.length} Entries`} />
+      <PageContainer>
+        {!isOpen && (
+          <Button onClick={handleClick}>
+            <span>New time entry</span>
+            <Plus />
+          </Button>
+        )}
+        <EntryForm isOpen={isOpen} onClose={handleClick} onSubmit={handleTimeEntrySubmit} />
         <TimeEntries timeEntries={timeEntries} />
-      </Wrapper>
+      </PageContainer>
     </>
   );
 };

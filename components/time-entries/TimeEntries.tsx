@@ -1,13 +1,13 @@
 import React from "react";
 
 import { EntryDate } from "../entry-date/EntryDate";
+import { FormattedTimeEntryInterface } from "../../fixtures/time-entries";
 import { getDate } from "../../services/date";
-import { ITimeEntry } from "../../fixtures/time-entries";
 import { TimeEntry } from "../time-entry/TimeEntry";
 import { TimeEntryContainer } from "./TimeEntries.styled";
 
 interface TimeEntriesProps {
-  timeEntries: ITimeEntry[];
+  timeEntries: FormattedTimeEntryInterface[];
 }
 
 export const TimeEntries = ({ timeEntries }: TimeEntriesProps) => {

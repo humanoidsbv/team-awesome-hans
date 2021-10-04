@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 
-import { ArrowDownIcon } from "../icon/ArrowDown";
 import * as Styled from "./DrawerContent.styled";
 
 interface HeaderProps {
@@ -32,7 +31,6 @@ export const DrawerContent = ({ isOpen }: HeaderProps) => {
           <Styled.DrawerContentItem>Documents</Styled.DrawerContentItem>
         </li>
       </Styled.DrawerContentItemList>
-      <ArrowDownIcon />
     </Styled.DrawerContent>
   );
 };
