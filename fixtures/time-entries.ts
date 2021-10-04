@@ -5,14 +5,6 @@ export interface FormattedTimeEntryInterface {
   stopTimestamp: string;
 }
 
-export interface TimeEntryInterface {
-  activity: string;
-  date: string;
-  employer: string;
-  from: string;
-  to: string;
-}
-
 export const mockTimeEntries: FormattedTimeEntryInterface[] = [
   {
     id: 0.8524250995148186,

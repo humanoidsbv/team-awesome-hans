@@ -9,7 +9,9 @@ interface EntryFormProps {
 }
 
 const defaultForm = {
-  date: new Date().toISOString().substr(0, 10),
+  activity: null,
+  date: new Date().toISOString().split("T").shift(),
+  employer: null,
   from: "09:00",
   to: "17:00",
 };
@@ -19,13 +21,13 @@ export const EntryForm = ({ onClose, onSubmit, isOpen }: EntryFormProps) => {
   const [isInputValid, setIsInputValid] = useState<any>({});
   const [newTimeEntry, setNewTimeEntry] = useState(defaultForm);
 
-  const handleBlur = (event: any) => {
+  const handleBlur = (event: React.FocusEvent<HTMLInputElement>) => {
     setIsInputValid({ ...isInputValid, [event.target.name]: event.target.checkValidity() });
   };
 
   const formRef = useRef<HTMLFormElement>(null);
 
-  const handleChange = (event: any) => {
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setNewTimeEntry({ ...newTimeEntry, [event.target.name]: event.target.value });
     setIsFormValid(formRef.current?.checkValidity());
   };
@@ -33,7 +35,13 @@ export const EntryForm = ({ onClose, onSubmit, isOpen }: EntryFormProps) => {
   const handleSubmit = (event: React.SyntheticEvent) => {
     event.preventDefault();
     setNewTimeEntry(defaultForm);
-    onSubmit(newTimeEntry);
+        const formattedTimeEntry = {
+          client: newTimeEntry.employer,
+          id: Math.random(),
+          startTimestamp: new Date(`${newTimeEntry.date}T${newTimeEntry.from}`).toISOString(),
+          stopTimestamp: new Date(`${newTimeEntry.date}T${newTimeEntry.to}`).toISOString(),
+        };
+    onSubmit(formattedTimeEntry);
   };
 
   return (

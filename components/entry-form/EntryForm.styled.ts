@@ -35,6 +35,7 @@ export const Label = styled.label`
 export const TextLabel = styled.label`
   width: 100%;
   text-transform: uppercase;
+
   @media screen and (min-width: 1024px) {
     max-width: 200px;
   }
@@ -45,6 +46,7 @@ export const TextLabel = styled.label`
 
 export const DateLabel = styled.label`
   text-transform: uppercase;
+  
   @media screen and (min-width: 1024px) {
     width: 150px;
   }
