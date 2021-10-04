@@ -5,10 +5,10 @@ import { Button } from "../components/button/Button";
 import { EntryForm } from "../components/entry-form/EntryForm";
 import { GlobalStyles } from "../components/global";
 import { Header } from "../components/header/Header";
-import { mockTimeEntries, FormattedTimeEntryInterface } from "../fixtures/time-entries";
-import { PlusIcon } from "../components/icon/PlusIcon";
+import { mockTimeEntries, TimeEntryInterface } from "../fixtures/time-entries";
+import { PageContainer } from "../components/PageContainer/PageContainer.styled";
 import { TimeEntries } from "../components/time-entries/TimeEntries";
-import { Wrapper } from "../components/wrapper/Wrapper.styled";
+import Plus from "../public/images/plus-icon.svg";
 
 const App = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -18,7 +18,7 @@ const App = () => {
     setIsOpen(!isOpen);
   };
 
-  const handleTimeEntrySubmit = (newTimeEntry: FormattedTimeEntryInterface) => {
+  const handleTimeEntrySubmit = (newTimeEntry: TimeEntryInterface) => {
     setTimeEntries([...timeEntries, newTimeEntry]);
   };
 
@@ -29,17 +29,17 @@ const App = () => {
         <title>team awesome</title>
       </Head>
       <GlobalStyles />
-      <Header title="Timesheets" subTitle="Entries" count={timeEntries.length} />
-      <Wrapper>
+      <Header title="Timesheets" subTitle={`${timeEntries.length} Entries`} />
+      <PageContainer>
         {!isOpen && (
-          <Button onClick={handleClick} type="Primary">
+          <Button onClick={handleClick} type="primary">
             <span>New time entry</span>
-            <PlusIcon />
+            <Plus />
           </Button>
         )}
         <EntryForm isOpen={isOpen} onClose={handleClick} onSubmit={handleTimeEntrySubmit} />
         <TimeEntries timeEntries={timeEntries} />
-      </Wrapper>
+      </PageContainer>
     </>
   );
 };

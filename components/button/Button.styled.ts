@@ -3,8 +3,8 @@ import styled from "styled-components";
 export const Primary = styled.button`
   align-items: center;
   background-image: linear-gradient(#39b54a, #34aa44);
-  border-radius: 4px;
   border: solid 1px #249533;
+  border-radius: 4px;
   color: white;
   display: flex;
   font-family: "Proxima Nova";
