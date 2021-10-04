@@ -5,7 +5,7 @@ export const Title = styled.span`
   display: none;
   font-size: 24px;
 
-  @media screen and (min-width: 1024px) {
+  @media (${({ theme }) => theme.desktop}) {
     display: flex;
   }
 `;
@@ -22,7 +22,7 @@ export const EntryFormContainer = styled.div<{ isOpen: boolean }>`
   padding: 16px;
   position: relative;
 
-  @media screen and (min-width: 1024px) {
+  @media (${({ theme }) => theme.desktop}) {
     display: flex;
   }
 `;
@@ -36,18 +36,22 @@ export const TextLabel = styled.label`
   width: 100%;
   text-transform: uppercase;
 
-  @media screen and (min-width: 1024px) {
+  @media (${({ theme }) => theme.desktop}) {
+    max-width: 150px;
+  }
+  @media (${({ theme }) => theme.desktopL}) {
     max-width: 200px;
   }
-  @media screen and (min-width: 1200px) {
+
+  @media (${({ theme }) => theme.desktopXL}) {
     max-width: 245px;
   }
 `;
 
 export const DateLabel = styled.label`
   text-transform: uppercase;
-  
-  @media screen and (min-width: 1024px) {
+
+  @media (${({ theme }) => theme.desktop}) {
     width: 150px;
   }
 `;
@@ -65,7 +69,7 @@ export const Input = styled.input<{ isInputValid: boolean }>`
   padding: 0 12px;
   width: 100%;
 
-  @media screen and (min-width: 1024px) {
+  @media (${({ theme }) => theme.desktop}) {
     margin-bottom: 0;
   }
 `;
@@ -81,7 +85,7 @@ export const EntryForm = styled.form<{ isOpen: boolean }>`
     display: flex;
   `}
 
-  @media screen and (min-width: 1024px) {
+  @media (${({ theme }) => theme.desktop}) {
     align-items: center;
     display: flex;
     flex-direction: row;
@@ -117,18 +121,18 @@ export const EntryForm = styled.form<{ isOpen: boolean }>`
         animation: rotating 0.5s linear infinite;
       }
 
-      @media screen and (min-width: 1024px) {
+      @media (${({ theme }) => theme.desktop}) {
         display: none;
       }
     }
 
-    @media screen and (min-width: 1024px) {
+    @media (${({ theme }) => theme.desktop}) {
       gap: 14px;
     }
   }
 
   .add-time-entry {
-    @media screen and (min-width: 1024px) {
+    @media (${({ theme }) => theme.desktop}) {
       justify-content: flex-end;
       position: absolute;
       right: 0;
@@ -150,7 +154,7 @@ export const SubmitInput = styled.input`
   padding: 10px;
   width: 100%;
 
-  @media screen and (min-width: 1024px) {
+  @media (${({ theme }) => theme.desktop}) {
     margin-bottom: 0;
     margin-right: 26px;
     margin-top: 0;

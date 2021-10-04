@@ -10,7 +10,7 @@ export const DrawerContent = styled.nav<{ isOpen: boolean }>`
   text-align: center;
   width: 100%;
 
-  @media screen and (min-width: 1024px) {
+  @media (${({ theme }) => theme.desktop}) {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
@@ -28,7 +28,7 @@ export const DrawerContentItemList = styled.ul`
   margin-block-start: 0;
   padding: 0;
 
-  @media screen and (min-width: 1024px) {
+  @media (${({ theme }) => theme.desktop}) {
     display: flex;
   }
 `;
@@ -42,7 +42,7 @@ export const DrawerContentItem = styled.a<{ isActive?: boolean }>`
   padding: 3px 12px;
   text-decoration: none;
 
-  @media screen and (min-width: 1024px) {
+  @media (${({ theme }) => theme.desktop}) {
     font-size: 14px;
     margin: 0 12px;
     padding: 8px 18px;
