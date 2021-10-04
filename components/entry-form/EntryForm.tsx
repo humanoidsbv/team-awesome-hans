@@ -61,7 +61,6 @@ export const EntryForm = ({ onClose, onSubmit, isOpen }: EntryFormProps) => {
           </Styled.TextLabel>
           <Styled.TextLabel htmlFor="activity">
             activity
-            <br />
             <Styled.Input
               id="activity"
               isInputValid={isInputValid.activity !== false}
@@ -75,7 +74,6 @@ export const EntryForm = ({ onClose, onSubmit, isOpen }: EntryFormProps) => {
           </Styled.TextLabel>
           <Styled.DateLabel htmlFor="date">
             date
-            <br />
             <Styled.Input
               id="date"
               isInputValid={isInputValid.date !== false}
@@ -90,7 +88,6 @@ export const EntryForm = ({ onClose, onSubmit, isOpen }: EntryFormProps) => {
           <div>
             <Styled.Label htmlFor="from">
               from
-              <br />
               <Styled.Input
                 id="from"
                 isInputValid={isInputValid.from !== false}

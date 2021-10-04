@@ -9,8 +9,17 @@ export const Header = styled.header<{ isOpen: boolean }>`
   transition: all 0.3s ease-out;
   width: 100%;
 
+  .arrow-down-icon {
+    display: none;
+  }
+
   @media screen and (min-width: 1024px) {
     justify-content: center;
+
+    .arrow-down-icon {
+      display: flex;
+      right: 32px;
+    }
   }
 `;
 

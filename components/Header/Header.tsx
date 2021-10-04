@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 
+import ArrowDown from "../../public/images/arrow-down.svg";
 import { DrawerButton } from "../drawer-button/DrawerButton";
 import { DrawerContent } from "../drawer-content/DrawerContent";
 import { UserButton } from "../user-button/UserButton";
@@ -20,6 +21,7 @@ export const Header = ({ entryCount }: HeaderProps) => {
         <DrawerButton isOpen={isOpen} onClick={handleClick} />
         <DrawerContent isOpen={isOpen} />
         <UserButton />
+        <ArrowDown className="arrow-down-icon" />
       </Styled.Header>
       <Styled.PageHeader>
         <span>Timesheets</span>

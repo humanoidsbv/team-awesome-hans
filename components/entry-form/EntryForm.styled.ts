@@ -3,7 +3,6 @@ import styled from "styled-components";
 export const Title = styled.span`
   color: #354052;
   display: none;
-  font-family: "Proxima Nova";
   font-size: 24px;
 
   @media screen and (min-width: 1024px) {
@@ -16,21 +15,14 @@ export const EntryFormContainer = styled.div<{ isOpen: boolean }>`
   border: solid 1px #e6eaee;
   border-radius: 4px;
   color: #68768c;
-  display: none;
-  font-family: "Proxima Nova";
+  display: ${(props) => (props.isOpen ? "flex" : "none")};
   font-size: 12px;
   justify-content: flex-start;
   margin-top: 24px;
   padding: 16px;
   position: relative;
 
-  ${(props) =>
-    props.isOpen &&
-    `
-    display: flex;
-  `}
-
-  @media screen and (min-width:1024px) {
+  @media screen and (min-width: 1024px) {
     display: flex;
   }
 `;
@@ -149,7 +141,6 @@ export const SubmitInput = styled.input`
   border-radius: 4px;
   color: white;
   display: flex;
-  font-family: "Proxima Nova";
   font-size: 14px;
   justify-content: center;
   margin-bottom: 18px;

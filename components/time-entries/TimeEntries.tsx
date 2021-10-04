@@ -13,7 +13,7 @@ interface TimeEntriesProps {
 export const TimeEntries = ({ timeEntries }: TimeEntriesProps) => {
   return (
     <>
-      {[...timeEntries].map((timeEntry, i) => {
+      {timeEntries.map((timeEntry, i) => {
         const currentDate = getDate(timeEntry.startTimestamp);
         const nextDate = getDate(timeEntries[i + 1]?.startTimestamp);
         const previousDate = getDate(timeEntries[i - 1]?.startTimestamp);
