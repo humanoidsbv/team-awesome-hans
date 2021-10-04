@@ -29,10 +29,10 @@ const App = () => {
         <title>team awesome</title>
       </Head>
       <GlobalStyles />
-      <Header title="Timesheets" subTitle={`${timeEntries.length} Entries`} />
+      <Header title="Timesheets" subtitle={`${timeEntries.length} Entries`} />
       <PageContainer>
         {!isOpen && (
-          <Button onClick={handleClick} type="primary">
+          <Button onClick={handleClick}>
             <span>New time entry</span>
             <Plus />
           </Button>

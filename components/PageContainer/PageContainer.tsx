@@ -2,6 +2,6 @@ import React from "react";
 
 import * as Styled from "./PageContainer.styled";
 
-export const Wrapper = () => {
+export const PageContainer = () => {
   return <Styled.PageContainer />;
 };

@@ -7,11 +7,11 @@ import * as Styled from "./Header.styled";
 import ArrowDown from "../../public/images/arrow-down.svg";
 
 interface HeaderProps {
-  subTitle: string;
+  subtitle: string;
   title: string;
 }
 
-export const Header = ({ subTitle, title }: HeaderProps) => {
+export const Header = ({ subtitle, title }: HeaderProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const handleClick = () => setIsOpen(!isOpen);
 
@@ -27,7 +27,7 @@ export const Header = ({ subTitle, title }: HeaderProps) => {
       <Styled.PageHeader>
         <span>{title}</span>
         <div className="divider" />
-        <span className="entry-counter">{subTitle}</span>
+        <span className="entry-counter">{subtitle}</span>
       </Styled.PageHeader>
     </div>
   );

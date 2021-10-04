@@ -7,7 +7,6 @@ export const Primary = styled.button`
   border-radius: 4px;
   color: white;
   display: flex;
-  font-family: "Proxima Nova";
   font-size: 14px;
   justify-content: center;
   padding: 10px;
