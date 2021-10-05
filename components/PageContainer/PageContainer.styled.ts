@@ -6,7 +6,7 @@ export const PageContainer = styled.div`
   justify-content: center;
   padding: 24px 16px;
 
-  @media screen and (min-width: 1024px) {
+  @media (${({ theme }) => theme.desktop}) {
     padding: 24px;
 
     button {
@@ -14,15 +14,15 @@ export const PageContainer = styled.div`
     }
   }
 
-  @media screen and (min-width: 1200px) {
+  @media (${({ theme }) => theme.desktop}) {
     padding: 24px 50px;
   }
 
-  @media screen and (min-width: 1400px) {
+  @media (${({ theme }) => theme.desktopL}) {
     padding: 24px 100px;
   }
 
-  @media screen and (min-width: 1600px) {
+  @media (${({ theme }) => theme.desktopXL}) {
     padding: 24px 200px;
   }
 `;

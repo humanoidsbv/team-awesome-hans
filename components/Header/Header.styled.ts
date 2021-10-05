@@ -13,7 +13,7 @@ export const Header = styled.header<{ isOpen: boolean }>`
     display: none;
   }
 
-  @media screen and (min-width: 1024px) {
+  @media (${({ theme }) => theme.desktop}) {
     justify-content: center;
 
     .arrow-down-icon {
@@ -29,7 +29,7 @@ export const HeaderTitle = styled.h1`
   font-size: 26px;
   text-align: center;
 
-  @media screen and (min-width: 1024px) {
+  @media (${({ theme }) => theme.desktop}) {
     display: none;
   }
 `;
@@ -37,7 +37,7 @@ export const HeaderTitle = styled.h1`
 export const PageHeader = styled.div`
   display: none;
 
-  @media screen and (min-width: 1024px) {
+  @media (${({ theme }) => theme.desktop}) {
     align-items: center;
     border-bottom: solid 1px #e6eaee;
     display: flex;

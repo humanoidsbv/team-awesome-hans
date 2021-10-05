@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const UserButton = styled.button`
   display: none;
 
-  @media screen and (min-width: 1024px) {
+  @media (${({ theme }) => theme.desktop}) {
     align-items: center;
     background-color: white;
     border-radius: 18px;
@@ -20,7 +20,7 @@ export const UserButton = styled.button`
 export const Logo = styled.img`
   display: none;
 
-  @media screen and (min-width: 1024px) {
+  @media (${({ theme }) => theme.desktop}) {
     display: flex;
     height: 10px;
     left: 12px;
@@ -32,7 +32,7 @@ export const Logo = styled.img`
 export const UserIcon = styled.img`
   display: none;
 
-  @media screen and (min-width: 1024px) {
+  @media (${({ theme }) => theme.desktop}) {
     border-radius: 90px;
     display: flex;
     height: 32px;
@@ -45,7 +45,7 @@ export const UserIcon = styled.img`
 export const ArrowDown = styled.img`
   display: none;
 
-  @media screen and (min-width: 1024px) {
+  @media (${({ theme }) => theme.desktop}) {
     border-radius: 90px;
     display: flex;
     height: 8px;

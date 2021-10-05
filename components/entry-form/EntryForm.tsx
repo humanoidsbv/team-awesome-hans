@@ -8,18 +8,26 @@ interface EntryFormProps {
   isOpen: boolean;
 }
 
+interface EntryFormInterface {
+  activity?: string | boolean;
+  date?: string | boolean;
+  employer?: string | boolean;
+  from?: string | boolean;
+  to?: string | boolean;
+}
+
 const defaultForm = {
-  activity: null,
+  activity: "",
   date: new Date().toISOString().split("T").shift(),
-  employer: null,
+  employer: "",
   from: "09:00",
   to: "17:00",
 };
 
 export const EntryForm = ({ onClose, onSubmit, isOpen }: EntryFormProps) => {
   const [isFormValid, setIsFormValid] = useState(false);
-  const [isInputValid, setIsInputValid] = useState<any>({});
-  const [newTimeEntry, setNewTimeEntry] = useState(defaultForm);
+  const [isInputValid, setIsInputValid] = useState<EntryFormInterface>({});
+  const [newTimeEntry, setNewTimeEntry] = useState<EntryFormInterface>(defaultForm);
 
   const handleBlur = (event: React.FocusEvent<HTMLInputElement>) => {
     setIsInputValid({ ...isInputValid, [event.target.name]: event.target.checkValidity() });
@@ -35,12 +43,12 @@ export const EntryForm = ({ onClose, onSubmit, isOpen }: EntryFormProps) => {
   const handleSubmit = (event: React.SyntheticEvent) => {
     event.preventDefault();
     setNewTimeEntry(defaultForm);
-        const formattedTimeEntry = {
-          client: newTimeEntry.employer,
-          id: Math.random(),
-          startTimestamp: new Date(`${newTimeEntry.date}T${newTimeEntry.from}`).toISOString(),
-          stopTimestamp: new Date(`${newTimeEntry.date}T${newTimeEntry.to}`).toISOString(),
-        };
+    const formattedTimeEntry = {
+      client: newTimeEntry.employer,
+      id: Math.random(),
+      startTimestamp: new Date(`${newTimeEntry.date}T${newTimeEntry.from}`).toISOString(),
+      stopTimestamp: new Date(`${newTimeEntry.date}T${newTimeEntry.to}`).toISOString(),
+    };
     onSubmit(formattedTimeEntry);
   };
 
@@ -90,7 +98,7 @@ export const EntryForm = ({ onClose, onSubmit, isOpen }: EntryFormProps) => {
               onChange={handleChange}
               required
               type="date"
-              value={newTimeEntry.date}
+              value={defaultForm.date}
             />
           </Styled.DateLabel>
           <div>
@@ -104,7 +112,7 @@ export const EntryForm = ({ onClose, onSubmit, isOpen }: EntryFormProps) => {
                 onChange={handleChange}
                 required
                 type="time"
-                value={newTimeEntry.from}
+                value={defaultForm.from}
               />
             </Styled.Label>
             <Styled.Label htmlFor="to">
@@ -117,7 +125,7 @@ export const EntryForm = ({ onClose, onSubmit, isOpen }: EntryFormProps) => {
                 onChange={handleChange}
                 required
                 type="time"
-                value={newTimeEntry.to}
+                value={defaultForm.to}
               />
             </Styled.Label>
           </div>
