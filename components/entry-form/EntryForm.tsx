@@ -8,6 +8,14 @@ interface EntryFormProps {
   isOpen: boolean;
 }
 
+interface EntryFormInterface {
+  activity?: string | boolean;
+  date?: string | boolean;
+  employer?: string | boolean;
+  from?: string | boolean;
+  to?: string | boolean;
+}
+
 const defaultForm = {
   activity: "",
   date: new Date().toISOString().split("T").shift(),
@@ -104,7 +112,7 @@ export const EntryForm = ({ onClose, onSubmit, isOpen }: EntryFormProps) => {
               onChange={handleChange}
               required
               type="date"
-              value={newTimeEntry.date}
+              value={defaultForm.date}
             />
           </Styled.DateLabel>
           <div>
@@ -118,7 +126,7 @@ export const EntryForm = ({ onClose, onSubmit, isOpen }: EntryFormProps) => {
                 onChange={handleChange}
                 required
                 type="time"
-                value={newTimeEntry.from}
+                value={defaultForm.from}
               />
             </Styled.Label>
             <Styled.Label htmlFor="to">
@@ -131,7 +139,7 @@ export const EntryForm = ({ onClose, onSubmit, isOpen }: EntryFormProps) => {
                 onChange={handleChange}
                 required
                 type="time"
-                value={newTimeEntry.to}
+                value={defaultForm.to}
               />
             </Styled.Label>
           </div>
