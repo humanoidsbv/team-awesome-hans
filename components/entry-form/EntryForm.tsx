@@ -9,17 +9,25 @@ interface EntryFormProps {
 }
 
 const defaultForm = {
-  activity: null,
+  activity: "",
   date: new Date().toISOString().split("T").shift(),
-  employer: null,
+  employer: "",
   from: "09:00",
   to: "17:00",
 };
 
+interface FormValidityInterface {
+  [name: string]: boolean;
+}
+
+interface FormStateInterface {
+  [name: string]: string;
+}
+
 export const EntryForm = ({ onClose, onSubmit, isOpen }: EntryFormProps) => {
   const [isFormValid, setIsFormValid] = useState(false);
-  const [isInputValid, setIsInputValid] = useState<any>({});
-  const [newTimeEntry, setNewTimeEntry] = useState(defaultForm);
+  const [isInputValid, setIsInputValid] = useState<FormValidityInterface>({});
+  const [newTimeEntry, setNewTimeEntry] = useState<FormStateInterface>(defaultForm);
 
   const handleBlur = (event: React.FocusEvent<HTMLInputElement>) => {
     setIsInputValid({ ...isInputValid, [event.target.name]: event.target.checkValidity() });
@@ -32,16 +40,20 @@ export const EntryForm = ({ onClose, onSubmit, isOpen }: EntryFormProps) => {
     setIsFormValid(formRef.current?.checkValidity());
   };
 
-  const handleSubmit = (event: React.SyntheticEvent) => {
+  const handleSubmit = (event: React.BaseSyntheticEvent) => {
     event.preventDefault();
-    setNewTimeEntry(defaultForm);
-        const formattedTimeEntry = {
-          client: newTimeEntry.employer,
-          id: Math.random(),
-          startTimestamp: new Date(`${newTimeEntry.date}T${newTimeEntry.from}`).toISOString(),
-          stopTimestamp: new Date(`${newTimeEntry.date}T${newTimeEntry.to}`).toISOString(),
-        };
+    const formattedTimeEntry = {
+      activity: newTimeEntry.activity,
+      client: newTimeEntry.employer,
+      id: Math.random(),
+      startTime: new Date(`${newTimeEntry.date}T${newTimeEntry.from}`).toISOString(),
+      endTime: new Date(`${newTimeEntry.date}T${newTimeEntry.to}`).toISOString(),
+    };
     onSubmit(formattedTimeEntry);
+    event.target.reset();
+    setIsFormValid(false);
+    setIsInputValid({});
+    setNewTimeEntry(defaultForm);
   };
 
   return (
@@ -65,11 +77,13 @@ export const EntryForm = ({ onClose, onSubmit, isOpen }: EntryFormProps) => {
               placeholder="Employer"
               required
               type="text"
+              autoComplete="off"
             />
           </Styled.TextLabel>
           <Styled.TextLabel htmlFor="activity">
             activity
             <Styled.Input
+              autoComplete="off"
               id="activity"
               isInputValid={isInputValid.activity !== false}
               name="activity"
