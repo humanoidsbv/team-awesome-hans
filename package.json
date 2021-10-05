@@ -4,7 +4,8 @@
   "description": "Team Awesome is a Saas solution that can bu used by organizations an their employees for planning projects, tracking time and much more.",
   "main": "index.js",
   "scripts": {
-    "dev": "next",
+    "json-server": "json-server --watch db.json --port 3004",
+    "dev": "next & npm run json-server",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"

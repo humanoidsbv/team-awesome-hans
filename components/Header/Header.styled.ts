@@ -18,7 +18,8 @@ export const Header = styled.header<{ isOpen: boolean }>`
 
     .arrow-down-icon {
       display: flex;
-      right: 32px;
+      position: absolute;
+      right:32px;
     }
   }
 `;

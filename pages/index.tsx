@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Head from "next/head";
 import { ThemeProvider } from "styled-components";
 
@@ -6,15 +6,24 @@ import { Button } from "../components/button/Button";
 import { EntryForm } from "../components/entry-form/EntryForm";
 import { GlobalStyles } from "../styles/global";
 import { Header } from "../components/header/Header";
-import { mockTimeEntries, TimeEntryInterface } from "../fixtures/time-entries";
+import { TimeEntryInterface } from "../fixtures/time-entries";
 import { PageContainer } from "../components/PageContainer/PageContainer.styled";
 import { theme } from "../styles/theme";
 import { TimeEntries } from "../components/time-entries/TimeEntries";
 import Plus from "../public/images/plus-icon.svg";
+import { getTimeEntries } from "../services/time-entries";
 
 const App = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [timeEntries, setTimeEntries] = useState(mockTimeEntries);
+  const [timeEntries, setTimeEntries] = useState<TimeEntryInterface[]>([]);
+
+  async function fetchTimeEntries() {
+    setTimeEntries(await getTimeEntries());
+  }
+
+  useEffect(() => {
+    fetchTimeEntries();
+  }, []);
 
   const handleClick = () => {
     setIsOpen(!isOpen);

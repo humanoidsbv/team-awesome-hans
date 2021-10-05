@@ -57,7 +57,7 @@ export const DateLabel = styled.label`
 `;
 
 export const Input = styled.input<{ isInputValid: boolean }>`
-  box-shadow: 0 0 3px ${(props) => (props.isInputValid ? "#ced0da;" : "#fb6375")};
+  box-shadow: 0 0 3px ${(props) => (props.isInputValid ? "#ced0da" : "#fb6375")};
   background-image: linear-gradient(to top, #f2f4f7, #fff);
   border: solid 1px #ced0da;
   border-radius: 4px;
