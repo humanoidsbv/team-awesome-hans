@@ -1,10 +1,17 @@
+export class NotFoundError extends Error {
+  constructor(message: string) {
+    super(message);
+    this.name = "NotFoundError";
+  }
+}
 export const getTimeEntries = async () => {
-  const response = await fetch("http://localhost:3004/time-entries", {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-    },
-  });
-
-  return response.json();
+  return fetch("http://localhost:3004/time-entries?_sort=startTime&_order=asc")
+    .then((response) => {
+      if (response.status === 404) {
+        throw new NotFoundError(response.toString());
+      }
+      return response;
+    })
+    .then((response) => response.json())
+    .catch((error) => error);
 };
