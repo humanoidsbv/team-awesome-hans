@@ -4,27 +4,33 @@ import { ThemeProvider } from "styled-components";
 
 import { Button } from "../components/button/Button";
 import { EntryForm } from "../components/entry-form/EntryForm";
+import { getTimeEntries, NotFoundError } from "../services/time-entries";
 import { GlobalStyles } from "../styles/global";
 import { Header } from "../components/header/Header";
-import { TimeEntryInterface } from "../fixtures/time-entries";
+import { NoTimeEntries } from "../components/time-entries/NoTimeEntries";
 import { PageContainer } from "../components/PageContainer/PageContainer.styled";
 import { theme } from "../styles/theme";
+import { TimeEntries } from "../components/time-entries/TimeEntries";
+import { TimeEntryInterface } from "../fixtures/time-entries";
 import Plus from "../public/images/plus-icon.svg";
-import { getTimeEntries, NotFoundError } from "../services/time-entries";
 
 const App = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [timeEntries, setTimeEntries] = useState<TimeEntryInterface[]>([]);
+  const [timeEntryMessage, setTimeEntryMessage] = useState<string>();
 
-  async function fetchTimeEntries() {
+  const fetchTimeEntries = async () => {
     const response = await getTimeEntries();
     if (response instanceof NotFoundError) {
-      console.log("No entries found!");
-      return
+      setTimeEntryMessage("Oh no! Something went wrong..");
+      return;
+    }
+    if (response.length === 0) {
+      setTimeEntryMessage("No entries found..");
+      return;
     }
     setTimeEntries(response);
-    console.log("Time entries: ", timeEntries);
-  }
+  };
 
   useEffect(() => {
     fetchTimeEntries();
@@ -37,7 +43,6 @@ const App = () => {
   const handleTimeEntrySubmit = (newTimeEntry: TimeEntryInterface) => {
     setTimeEntries([...timeEntries, newTimeEntry]);
   };
-  console.log("Time entries: ", timeEntries);
 
   return (
     <>
@@ -56,7 +61,8 @@ const App = () => {
             </Button>
           )}
           <EntryForm isOpen={isOpen} onClose={handleClick} onSubmit={handleTimeEntrySubmit} />
-          {/* <TimeEntries timeEntries={timeEntries} /> */}
+          <TimeEntries timeEntries={timeEntries} />
+          {timeEntries.length && <NoTimeEntries message={timeEntryMessage} />}
         </PageContainer>
       </ThemeProvider>
     </>
