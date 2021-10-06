@@ -9,16 +9,21 @@ import { Header } from "../components/header/Header";
 import { TimeEntryInterface } from "../fixtures/time-entries";
 import { PageContainer } from "../components/PageContainer/PageContainer.styled";
 import { theme } from "../styles/theme";
-import { TimeEntries } from "../components/time-entries/TimeEntries";
 import Plus from "../public/images/plus-icon.svg";
-import { getTimeEntries } from "../services/time-entries";
+import { getTimeEntries, NotFoundError } from "../services/time-entries";
 
 const App = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [timeEntries, setTimeEntries] = useState<TimeEntryInterface[]>([]);
 
   async function fetchTimeEntries() {
-    setTimeEntries(await getTimeEntries());
+    const response = await getTimeEntries();
+    if (response instanceof NotFoundError) {
+      console.log("No entries found!");
+      return
+    }
+    setTimeEntries(response);
+    console.log("Time entries: ", timeEntries);
   }
 
   useEffect(() => {
@@ -32,6 +37,7 @@ const App = () => {
   const handleTimeEntrySubmit = (newTimeEntry: TimeEntryInterface) => {
     setTimeEntries([...timeEntries, newTimeEntry]);
   };
+  console.log("Time entries: ", timeEntries);
 
   return (
     <>
@@ -41,7 +47,7 @@ const App = () => {
       </Head>
       <GlobalStyles />
       <ThemeProvider theme={theme}>
-        <Header title="Timesheets" subtitle={`${timeEntries.length} Entries`} />
+        <Header title="Timesheets" subtitle={`${timeEntries?.length} Entries`} />
         <PageContainer>
           {!isOpen && (
             <Button onClick={handleClick}>
@@ -50,7 +56,7 @@ const App = () => {
             </Button>
           )}
           <EntryForm isOpen={isOpen} onClose={handleClick} onSubmit={handleTimeEntrySubmit} />
-          <TimeEntries timeEntries={timeEntries} />
+          {/* <TimeEntries timeEntries={timeEntries} /> */}
         </PageContainer>
       </ThemeProvider>
     </>

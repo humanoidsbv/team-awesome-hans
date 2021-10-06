@@ -8,14 +8,6 @@ interface EntryFormProps {
   isOpen: boolean;
 }
 
-interface EntryFormInterface {
-  activity?: string | boolean;
-  date?: string | boolean;
-  employer?: string | boolean;
-  from?: string | boolean;
-  to?: string | boolean;
-}
-
 const defaultForm = {
   activity: "",
   date: new Date().toISOString().split("T").shift(),
