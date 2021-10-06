@@ -16,7 +16,7 @@ export const getTimeEntries = async () => {
     .catch((error) => error);
 };
 
-export const postTimeEntries = async (newTimeEntry: object) => {
+export const postTimeEntry = async (newTimeEntry: object) => {
   fetch("http://localhost:3004/time-entries", {
     method: "POST",
     headers: {

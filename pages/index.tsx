@@ -4,7 +4,7 @@ import { ThemeProvider } from "styled-components";
 
 import { Button } from "../components/button/Button";
 import { EntryForm } from "../components/entry-form/EntryForm";
-import { getTimeEntries, NotFoundError, postTimeEntries } from "../services/time-entries";
+import { getTimeEntries, NotFoundError, postTimeEntry } from "../services/time-entries";
 import { GlobalStyles } from "../styles/global";
 import { Header } from "../components/header/Header";
 import { NoTimeEntries } from "../components/time-entries/NoTimeEntries";
@@ -41,7 +41,7 @@ const App = () => {
   };
 
   const handleTimeEntrySubmit = (newTimeEntry: TimeEntryInterface) => {
-    postTimeEntries(newTimeEntry);
+    postTimeEntry(newTimeEntry);
     fetchTimeEntries();
   };
 
