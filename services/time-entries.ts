@@ -15,3 +15,21 @@ export const getTimeEntries = async () => {
     .then((response) => response.json())
     .catch((error) => error);
 };
+
+export const postTimeEntries = async (newTimeEntry: object) => {
+  fetch("http://localhost:3004/time-entries", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(newTimeEntry),
+  })
+    .then((response) => {
+      if (response.status !== 201) {
+        throw new Error(response.toString());
+      }
+      return response;
+    })
+    .then((response) => response.json())
+    .catch((error) => error);
+};
