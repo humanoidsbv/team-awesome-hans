@@ -62,7 +62,7 @@ const App = () => {
           )}
           <EntryForm isOpen={isOpen} onClose={handleClick} onSubmit={handleTimeEntrySubmit} />
           <TimeEntries timeEntries={timeEntries} />
-          {timeEntries.length && <NoTimeEntries message={timeEntryMessage} />}
+          {!timeEntries.length && <NoTimeEntries message={timeEntryMessage} />}
         </PageContainer>
       </ThemeProvider>
     </>

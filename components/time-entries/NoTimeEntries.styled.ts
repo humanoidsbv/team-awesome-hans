@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const NoTimeEntries = styled.div`
+export const NoTimeEntries = styled.p`
 	height: 300px;
   align-items: center;
   color: lightgrey;

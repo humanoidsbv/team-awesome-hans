@@ -5,12 +5,7 @@ export class NotFoundError extends Error {
   }
 }
 export const getTimeEntries = async () => {
-  return fetch("http://localhost:3004/time-entries?_sort=startTime&_order=asc", {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-    },
-  })
+  return fetch("http://localhost:3004/time-entries?_sort=startTime&_order=asc")
     .then((response) => {
       if (response.status === 404) {
         throw new NotFoundError(response.toString());
