@@ -7,16 +7,17 @@ interface StyledTimeEntryProps {
 }
 
 export const TimeEntry = styled.div<StyledTimeEntryProps>`
+  align-items: center;
   background-color: #fff;
   border-bottom-right-radius: 4px;
+  border-left: 0;
   border-top-right-radius: 4px;
   border: solid 1px #e6eaee;
-  border-left: 0;
   color: #354052;
   display: flex;
-  font-family: "Proxima Nova";
+  height: 30px;
   justify-content: space-between;
-  padding: 30px 16px;
+  padding: 24px 16px;
 
   ${(props) =>
     props.isBottom &&
@@ -38,4 +39,35 @@ export const TimeEntry = styled.div<StyledTimeEntryProps>`
     border-bottom-right-radius: 0;
     border-bottom: 0;
   `}
+
+  .client {
+    margin-right: 32px;
+  }
+
+  .delete-button {
+    display: none;
+  }
+
+  &:hover {
+    .delete-button {
+      display: flex;
+    }
+  }
+`;
+
+export const DeleteTimeEntryButton = styled.button`
+  align-items: center;
+  background: #fb6375;
+  border-radius: 4px;
+  box-shadow: 0 0 3px black;
+  color: white;
+  display: flex;
+  height: 30px;
+  justify-content: center;
+  margin-right: auto;
+  width: 80px;
+
+  .delete {
+    margin-right: 4px;
+  }
 `;

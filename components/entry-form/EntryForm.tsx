@@ -45,7 +45,6 @@ export const EntryForm = ({ onClose, onSubmit, isOpen }: EntryFormProps) => {
     const formattedTimeEntry = {
       activity: newTimeEntry.activity,
       client: newTimeEntry.employer,
-      id: Math.random(),
       startTime: new Date(`${newTimeEntry.date}T${newTimeEntry.from}`).toISOString(),
       endTime: new Date(`${newTimeEntry.date}T${newTimeEntry.to}`).toISOString(),
     };
@@ -104,7 +103,7 @@ export const EntryForm = ({ onClose, onSubmit, isOpen }: EntryFormProps) => {
               onChange={handleChange}
               required
               type="date"
-              value={defaultForm.date}
+              value={newTimeEntry.date}
             />
           </Styled.DateLabel>
           <div>
@@ -118,7 +117,7 @@ export const EntryForm = ({ onClose, onSubmit, isOpen }: EntryFormProps) => {
                 onChange={handleChange}
                 required
                 type="time"
-                value={defaultForm.from}
+                value={newTimeEntry.from}
               />
             </Styled.Label>
             <Styled.Label htmlFor="to">
@@ -131,7 +130,7 @@ export const EntryForm = ({ onClose, onSubmit, isOpen }: EntryFormProps) => {
                 onChange={handleChange}
                 required
                 type="time"
-                value={defaultForm.to}
+                value={newTimeEntry.to}
               />
             </Styled.Label>
           </div>

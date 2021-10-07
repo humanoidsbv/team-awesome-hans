@@ -4,11 +4,16 @@ import { ThemeProvider } from "styled-components";
 
 import { Button } from "../components/button/Button";
 import { EntryForm } from "../components/entry-form/EntryForm";
-import { getTimeEntries, NotFoundError, postTimeEntry } from "../services/time-entries";
+import {
+  deleteTimeEntry,
+  getTimeEntries,
+  NotFoundError,
+  postTimeEntry,
+} from "../services/time-entries-api";
 import { GlobalStyles } from "../styles/global";
 import { Header } from "../components/header/Header";
 import { NoTimeEntries } from "../components/time-entries/NoTimeEntries";
-import { PageContainer } from "../components/PageContainer/PageContainer.styled";
+import { PageContainer } from "../components/pageContainer/PageContainer.styled";
 import { theme } from "../styles/theme";
 import { TimeEntries } from "../components/time-entries/TimeEntries";
 import { TimeEntryInterface } from "../fixtures/time-entries";
@@ -22,12 +27,14 @@ const App = () => {
 
   const fetchTimeEntries = async () => {
     const response = await getTimeEntries();
+
     if (response instanceof NotFoundError) {
       setTimeEntryMessage("Oh no! Something went wrong..");
       return;
     }
     if (response.length === 0) {
       setTimeEntryMessage("No entries found..");
+      setTimeEntries(response);
       return;
     }
     setTimeEntries(response);
@@ -35,8 +42,8 @@ const App = () => {
 
   useEffect(() => {
     setIsLoading(true);
-    fetchTimeEntries();
-    setTimeout(() => {
+    setTimeout(async () => {
+      await fetchTimeEntries();
       setIsLoading(false);
     }, 1000);
   }, []);
@@ -47,11 +54,16 @@ const App = () => {
 
   const handleTimeEntrySubmit = async (newTimeEntry: TimeEntryInterface) => {
     setIsLoading(true);
-    await postTimeEntry(newTimeEntry);
-    await fetchTimeEntries();
-    setTimeout(() => {
+    setTimeout(async () => {
+      await postTimeEntry(newTimeEntry);
+      await fetchTimeEntries();
       setIsLoading(false);
     }, 1000);
+  };
+
+  const handleTimeEntryDelete = async (id: number) => {
+    await deleteTimeEntry(id);
+    await fetchTimeEntries();
   };
 
   return (
@@ -72,7 +84,7 @@ const App = () => {
           )}
           <EntryForm isOpen={isOpen} onClose={handleClick} onSubmit={handleTimeEntrySubmit} />
           {isLoading && <NoTimeEntries message="Loading..." />}
-          {!isLoading && <TimeEntries timeEntries={timeEntries} />}
+          {!isLoading && <TimeEntries timeEntries={timeEntries} onDelete={handleTimeEntryDelete} />}
           {!timeEntries.length && <NoTimeEntries message={timeEntryMessage} />}
         </PageContainer>
       </ThemeProvider>

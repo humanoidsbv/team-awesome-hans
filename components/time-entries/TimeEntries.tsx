@@ -8,9 +8,10 @@ import { TimeEntryContainer } from "./TimeEntries.styled";
 
 interface TimeEntriesProps {
   timeEntries: TimeEntryInterface[];
+  onDelete: (id: number) => Promise<void>;
 }
 
-export const TimeEntries = ({ timeEntries }: TimeEntriesProps) => {
+export const TimeEntries = ({ timeEntries, onDelete }: TimeEntriesProps) => {
   return (
     <>
       {timeEntries?.map((timeEntry, i) => {
@@ -30,9 +31,11 @@ export const TimeEntries = ({ timeEntries }: TimeEntriesProps) => {
             <TimeEntryContainer isBottom={isBottom} isMiddle={isMiddle} isTop={isTop}>
               <TimeEntry
                 client={timeEntry.client}
+                id={timeEntry.id}
                 isBottom={isBottom}
                 isMiddle={isMiddle}
                 isTop={isTop}
+                onDelete={onDelete}
                 startDate={timeEntry.startTime}
                 stopDate={timeEntry.endTime}
               />

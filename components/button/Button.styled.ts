@@ -15,6 +15,10 @@ export const Primary = styled.button`
   span {
     flex: 1;
   }
+
+  @media (${({ theme }) => theme.desktop}) {
+    display: none;
+  }
 `;
 
 export const Secondary = styled.button`
