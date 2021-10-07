@@ -16,6 +16,7 @@ import Plus from "../public/images/plus-icon.svg";
 
 const App = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [timeEntries, setTimeEntries] = useState<TimeEntryInterface[]>([]);
   const [timeEntryMessage, setTimeEntryMessage] = useState<string>();
 
@@ -33,16 +34,24 @@ const App = () => {
   };
 
   useEffect(() => {
+    setIsLoading(true);
     fetchTimeEntries();
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 1000);
   }, []);
 
   const handleClick = () => {
     setIsOpen(!isOpen);
   };
 
-  const handleTimeEntrySubmit = (newTimeEntry: TimeEntryInterface) => {
-    postTimeEntry(newTimeEntry);
-    fetchTimeEntries();
+  const handleTimeEntrySubmit = async (newTimeEntry: TimeEntryInterface) => {
+    setIsLoading(true);
+    await postTimeEntry(newTimeEntry);
+    await fetchTimeEntries();
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 1000);
   };
 
   return (
@@ -62,7 +71,8 @@ const App = () => {
             </Button>
           )}
           <EntryForm isOpen={isOpen} onClose={handleClick} onSubmit={handleTimeEntrySubmit} />
-          <TimeEntries timeEntries={timeEntries} />
+          {isLoading && <NoTimeEntries message="Loading..." />}
+          {!isLoading && <TimeEntries timeEntries={timeEntries} />}
           {!timeEntries.length && <NoTimeEntries message={timeEntryMessage} />}
         </PageContainer>
       </ThemeProvider>
