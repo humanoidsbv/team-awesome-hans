@@ -35,7 +35,7 @@ export const deleteTimeEntry = async (id: number) => {
     method: "DELETE",
   })
     .then((response) => {
-      if (response.status !== 200) {
+      if (!response.ok) {
         throw new Error(response.toString());
       }
       return response;

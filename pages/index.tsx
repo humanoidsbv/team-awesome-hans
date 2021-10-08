@@ -49,13 +49,16 @@ const App = () => {
     setIsOpen(!isOpen);
   };
 
-  const handleTimeEntrySubmit = async (newTimeEntry: TimeEntryInterface) => {
+  const handleTimeEntrySubmit = (newTimeEntry: TimeEntryInterface) => {
     setIsLoading(true);
-    setTimeout(async () => {
-      await postTimeEntry(newTimeEntry);
-      await fetchTimeEntries();
-      setIsLoading(false);
-    }, 1000);
+    minimumWait(
+      async () => {
+        await postTimeEntry(newTimeEntry);
+        await fetchTimeEntries();
+      },
+      () => setIsLoading(false),
+      500,
+    );
   };
 
   const handleTimeEntryDelete = async (id: number) => {
