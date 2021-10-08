@@ -1,9 +1,5 @@
-export class NotFoundError extends Error {
-  constructor(message: string) {
-    super(message);
-    this.name = "NotFoundError";
-  }
-}
+import { NotFoundError } from "./errors";
+
 export const getTimeEntries = async () => {
   return fetch("http://localhost:3004/time-entries?_sort=startTime&_order=asc")
     .then((response) => {
@@ -25,7 +21,7 @@ export const postTimeEntry = async (newTimeEntry: object) => {
     body: JSON.stringify(newTimeEntry),
   })
     .then((response) => {
-      if (response.status !== 201) {
+      if (!response.ok) {
         throw new Error(response.toString());
       }
       return response;

@@ -1,17 +1,17 @@
 import React from "react";
 
 import { EntryDate } from "../entry-date/EntryDate";
-import { TimeEntryInterface } from "../../fixtures/time-entries";
 import { getDate } from "../../services/date";
 import { TimeEntry } from "../time-entry/TimeEntry";
 import { TimeEntryContainer } from "./TimeEntries.styled";
+import { TimeEntryInterface } from "../../fixtures/time-entries";
 
 interface TimeEntriesProps {
-  timeEntries: TimeEntryInterface[];
   onDelete: (id: number) => Promise<void>;
+  timeEntries: TimeEntryInterface[];
 }
 
-export const TimeEntries = ({ timeEntries, onDelete }: TimeEntriesProps) => {
+export const TimeEntries = ({ onDelete, timeEntries }: TimeEntriesProps) => {
   return (
     <>
       {timeEntries?.map((timeEntry, i) => {
@@ -30,14 +30,11 @@ export const TimeEntries = ({ timeEntries, onDelete }: TimeEntriesProps) => {
             )}
             <TimeEntryContainer isBottom={isBottom} isMiddle={isMiddle} isTop={isTop}>
               <TimeEntry
-                client={timeEntry.client}
-                id={timeEntry.id}
                 isBottom={isBottom}
                 isMiddle={isMiddle}
                 isTop={isTop}
                 onDelete={onDelete}
-                startDate={timeEntry.startTime}
-                stopDate={timeEntry.endTime}
+                timeEntry={timeEntry}
               />
             </TimeEntryContainer>
           </React.Fragment>

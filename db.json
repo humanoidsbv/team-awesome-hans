@@ -1,13 +1,6 @@
 {
   "time-entries": [
     {
-      "activity": "designs",
-      "client": "Humanoids",
-      "startTime": "2021-10-07T07:00:00.000Z",
-      "endTime": "2021-10-07T15:00:00.000Z",
-      "id": 1
-    },
-    {
       "activity": "bootje varen",
       "client": "Port of Rotterdam",
       "startTime": "2021-10-08T07:01:00.000Z",
@@ -19,28 +12,7 @@
       "client": "Port of Rotterdam",
       "startTime": "2021-10-08T07:01:00.000Z",
       "endTime": "2021-10-08T15:00:00.000Z",
-      "id": 3
-    },
-    {
-      "activity": "bootje varen",
-      "client": "Port of Rotterdam",
-      "startTime": "2021-10-08T07:01:00.000Z",
-      "endTime": "2021-10-08T15:00:00.000Z",
       "id": 4
-    },
-    {
-      "activity": "bootje varen",
-      "client": "Port of Rotterdam",
-      "startTime": "2021-11-08T07:01:00.000Z",
-      "endTime": "2021-11-08T15:00:00.000Z",
-      "id": 5
-    },
-    {
-      "activity": "yeye",
-      "client": "Port of Amsterdam?:)",
-      "startTime": "2021-10-07T07:00:00.000Z",
-      "endTime": "2021-10-07T15:00:00.000Z",
-      "id": 6
     }
   ]
 }
