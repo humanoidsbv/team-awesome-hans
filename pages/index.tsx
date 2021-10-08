@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import Head from "next/head";
 import { ThemeProvider } from "styled-components";
 
@@ -15,11 +15,13 @@ import { TimeEntryInterface } from "../fixtures/time-entries";
 import Plus from "../public/images/plus-icon.svg";
 import { Message } from "../components/message/Message";
 import { minimumWait } from "../services/minimum-wait";
+import { StoreContext, StoreProvider} from "../context/StoreContext";
 
-const App = () => {
+const HomePage = () => {
+  const state = useContext(StoreContext);
   const [isOpen, setIsOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const [timeEntries, setTimeEntries] = useState<TimeEntryInterface[]>([]);
+  const [timeEntries, setTimeEntries] = state.timeEntries;
   const [timeEntryMessage, setTimeEntryMessage] = useState<string>();
 
   async function fetchTimeEntries() {
@@ -67,7 +69,7 @@ const App = () => {
   };
 
   return (
-    <>
+    <StoreProvider>
       <Head>
         <link rel="shortcut icon" href="/images/favicon.ico" />
         <title>team awesome</title>
@@ -88,8 +90,8 @@ const App = () => {
           {!timeEntries.length && <Message message={timeEntryMessage} />}
         </PageContainer>
       </ThemeProvider>
-    </>
+    </StoreProvider>
   );
 };
 
-export default App;
+export default HomePage;

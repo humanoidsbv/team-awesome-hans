@@ -15,25 +15,18 @@
       "id": 4
     },
     {
-      "activity": "yeeyee",
-      "client": "Port of Dammie",
-      "startTime": "2021-10-08T07:00:00.000Z",
-      "endTime": "2021-10-08T15:00:00.000Z",
-      "id": 5
-    },
-    {
-      "activity": "yee yee",
-      "client": "port of dammie",
-      "startTime": "2021-10-09T07:00:00.000Z",
-      "endTime": "2021-10-09T15:00:00.000Z",
-      "id": 6
-    },
-    {
       "activity": "yeee",
       "client": "port of dammie",
       "startTime": "2021-10-08T07:00:00.000Z",
       "endTime": "2021-10-08T15:00:00.000Z",
       "id": 7
+    },
+    {
+      "activity": "yeee",
+      "client": "dammie",
+      "startTime": "2021-10-08T07:00:00.000Z",
+      "endTime": "2021-10-08T15:00:00.000Z",
+      "id": 8
     }
   ]
 }
