@@ -9,7 +9,7 @@ export const PageContainer = styled.div`
   @media (${({ theme }) => theme.desktop}) {
     padding: 24px;
 
-    button {
+    .new-time-entry-button {
       display: none;
     }
   }

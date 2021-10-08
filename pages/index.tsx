@@ -3,37 +3,46 @@ import Head from "next/head";
 import { ThemeProvider } from "styled-components";
 
 import { Button } from "../components/button/Button";
+import { deleteTimeEntry, getTimeEntries, postTimeEntry } from "../services/time-entries-api";
 import { EntryForm } from "../components/entry-form/EntryForm";
-import { getTimeEntries, NotFoundError } from "../services/time-entries";
 import { GlobalStyles } from "../styles/global";
 import { Header } from "../components/header/Header";
-import { NoTimeEntries } from "../components/time-entries/NoTimeEntries";
-import { PageContainer } from "../components/PageContainer/PageContainer.styled";
+import { NotFoundError } from "../services/errors";
+import { PageContainer } from "../components/page-container/PageContainer.styled";
 import { theme } from "../styles/theme";
 import { TimeEntries } from "../components/time-entries/TimeEntries";
 import { TimeEntryInterface } from "../fixtures/time-entries";
 import Plus from "../public/images/plus-icon.svg";
+import { Message } from "../components/message/Message";
+import { minimumWait } from "../services/minimum-wait";
 
 const App = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [timeEntries, setTimeEntries] = useState<TimeEntryInterface[]>([]);
   const [timeEntryMessage, setTimeEntryMessage] = useState<string>();
 
-  const fetchTimeEntries = async () => {
+  async function fetchTimeEntries() {
     const response = await getTimeEntries();
+
     if (response instanceof NotFoundError) {
       setTimeEntryMessage("Oh no! Something went wrong..");
-      return;
+      return Promise.reject();
     }
+
     if (response.length === 0) {
       setTimeEntryMessage("No entries found..");
-      return;
+      setTimeEntries(response);
+      return Promise.reject();
     }
     setTimeEntries(response);
-  };
+
+    return response;
+  }
 
   useEffect(() => {
-    fetchTimeEntries();
+    setIsLoading(true);
+    minimumWait(fetchTimeEntries, () => setIsLoading(false), 500);
   }, []);
 
   const handleClick = () => {
@@ -41,7 +50,20 @@ const App = () => {
   };
 
   const handleTimeEntrySubmit = (newTimeEntry: TimeEntryInterface) => {
-    setTimeEntries([...timeEntries, newTimeEntry]);
+    setIsLoading(true);
+    minimumWait(
+      async () => {
+        await postTimeEntry(newTimeEntry);
+        await fetchTimeEntries();
+      },
+      () => setIsLoading(false),
+      500,
+    );
+  };
+
+  const handleTimeEntryDelete = async (id: number) => {
+    await deleteTimeEntry(id);
+    await fetchTimeEntries();
   };
 
   return (
@@ -61,8 +83,9 @@ const App = () => {
             </Button>
           )}
           <EntryForm isOpen={isOpen} onClose={handleClick} onSubmit={handleTimeEntrySubmit} />
-          <TimeEntries timeEntries={timeEntries} />
-          {!timeEntries.length && <NoTimeEntries message={timeEntryMessage} />}
+          {isLoading && <Message message="Loading Time Entries..." />}
+          {!isLoading && <TimeEntries timeEntries={timeEntries} onDelete={handleTimeEntryDelete} />}
+          {!timeEntries.length && <Message message={timeEntryMessage} />}
         </PageContainer>
       </ThemeProvider>
     </>
