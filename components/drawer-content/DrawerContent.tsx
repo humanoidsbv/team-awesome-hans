@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React, { useState } from "react";
 
 import * as Styled from "./DrawerContent.styled";
@@ -14,21 +15,31 @@ export const DrawerContent = ({ isOpen }: HeaderProps) => {
     <Styled.DrawerContent isOpen={isOpen}>
       <Styled.DrawerContentItemList>
         <li>
-          <Styled.DrawerContentItem onClick={handleClick} isActive={isActive}>
-            Timesheets
-          </Styled.DrawerContentItem>
+          <Link href="/">
+            <Styled.DrawerContentItem onClick={handleClick} isActive={isActive}>
+              Timesheets
+            </Styled.DrawerContentItem>
+          </Link>
         </li>
         <li>
-          <Styled.DrawerContentItem>Team members</Styled.DrawerContentItem>
+          <Link href="/team-members">
+            <Styled.DrawerContentItem>Team members</Styled.DrawerContentItem>
+          </Link>
         </li>
         <li>
-          <Styled.DrawerContentItem>Projects</Styled.DrawerContentItem>
+          <Link href="/projects">
+            <Styled.DrawerContentItem>Projects</Styled.DrawerContentItem>
+          </Link>
         </li>
         <li>
-          <Styled.DrawerContentItem>Clients</Styled.DrawerContentItem>
+          <Link href="/clients">
+            <Styled.DrawerContentItem>Clients</Styled.DrawerContentItem>
+          </Link>
         </li>
         <li>
-          <Styled.DrawerContentItem>Documents</Styled.DrawerContentItem>
+          <Link href="/document">
+            <Styled.DrawerContentItem>Documents</Styled.DrawerContentItem>
+          </Link>
         </li>
       </Styled.DrawerContentItemList>
     </Styled.DrawerContent>

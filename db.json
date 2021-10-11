@@ -28,5 +28,31 @@
       "endTime": "2021-10-08T15:00:00.000Z",
       "id": 9
     }
+  ],
+  "team-members": [
+    {
+      "name": "Hans Charbon",
+      "role": "Front-end Developer",
+      "startTime": "2021-09-08T07:01:00.000Z",
+      "icon": "https://source.unsplash.com/random/50x50?sig=",
+      "id": 1,
+      "employer": "Humanoids"
+    },
+    {
+      "name": "Maurice Markslag",
+      "role": "Front-end Developer",
+      "startTime": "2021-10-08T07:01:00.000Z",
+      "icon": "https://source.unsplash.com/random/50x50?sig=",
+      "id": 2,
+      "employer": "Humanoids"
+    },
+    {
+      "name": "Sara van den Berg",
+      "role": "Front-end Developer",
+      "startTime": "2021-11-08T07:01:00.000Z",
+      "icon": "https://source.unsplash.com/random/50x50?sig=",
+      "id": 3,
+      "employer": "Humanoids"
+    }
   ]
 }
