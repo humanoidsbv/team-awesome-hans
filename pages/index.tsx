@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Head from "next/head";
 import { ThemeProvider } from "styled-components";
 
@@ -11,17 +11,16 @@ import { Message } from "../components/message/Message";
 import { minimumWait } from "../services/minimum-wait";
 import { NotFoundError } from "../services/errors";
 import { PageContainer } from "../components/page-container/PageContainer.styled";
-import { StoreContext, StoreProvider} from "../context/StoreContext";
+import { StoreContext, StoreProvider } from "../context/StoreContext";
 import { theme } from "../styles/theme";
 import { TimeEntries } from "../components/time-entries/TimeEntries";
 import { TimeEntryInterface } from "../fixtures/time-entries";
 import Plus from "../public/images/plus-icon.svg";
 
 const HomePage = () => {
-  const state = useContext(StoreContext);
   const [isLoading, setIsLoading] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
-  const [timeEntries, setTimeEntries] = state.timeEntries;
+  const [timeEntries, setTimeEntries] = useContext(StoreContext).timeEntries;
   const [timeEntryMessage, setTimeEntryMessage] = useState<string>();
 
   async function fetchTimeEntries() {
