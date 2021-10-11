@@ -7,20 +7,20 @@ import { deleteTimeEntry, getTimeEntries, postTimeEntry } from "../services/time
 import { EntryForm } from "../components/entry-form/EntryForm";
 import { GlobalStyles } from "../styles/global";
 import { Header } from "../components/header/Header";
+import { Message } from "../components/message/Message";
+import { minimumWait } from "../services/minimum-wait";
 import { NotFoundError } from "../services/errors";
 import { PageContainer } from "../components/page-container/PageContainer.styled";
+import { StoreContext, StoreProvider} from "../context/StoreContext";
 import { theme } from "../styles/theme";
 import { TimeEntries } from "../components/time-entries/TimeEntries";
 import { TimeEntryInterface } from "../fixtures/time-entries";
 import Plus from "../public/images/plus-icon.svg";
-import { Message } from "../components/message/Message";
-import { minimumWait } from "../services/minimum-wait";
-import { StoreContext, StoreProvider} from "../context/StoreContext";
 
 const HomePage = () => {
   const state = useContext(StoreContext);
-  const [isOpen, setIsOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const [timeEntries, setTimeEntries] = state.timeEntries;
   const [timeEntryMessage, setTimeEntryMessage] = useState<string>();
 

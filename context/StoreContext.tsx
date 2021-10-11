@@ -1,8 +1,9 @@
 import React, { createContext, useState } from "react";
+
 import { TimeEntryInterface } from "../fixtures/time-entries"
 
 interface StoreProviderProps {
-  children;
+  children: React.ReactNode;
 }
 
 interface StoreContextProps {
