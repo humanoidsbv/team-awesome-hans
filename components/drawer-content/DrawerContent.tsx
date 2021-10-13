@@ -1,3 +1,4 @@
+import { useRouter } from "next/router";
 import Link from "next/link";
 import React, { useState } from "react";
 
@@ -9,6 +10,7 @@ interface HeaderProps {
 
 export const DrawerContent = ({ isOpen }: HeaderProps) => {
   const [isActive, setActive] = useState(false);
+  const router = useRouter();
   const handleClick = () => setActive(!isActive);
 
   return (
@@ -16,29 +18,42 @@ export const DrawerContent = ({ isOpen }: HeaderProps) => {
       <Styled.DrawerContentItemList>
         <li>
           <Link href="/">
-            <Styled.DrawerContentItem onClick={handleClick} isActive={isActive}>
+            <Styled.DrawerContentItem
+              isActive={router.pathname === "/" ? "isActive" : ""}
+              onClick={handleClick}
+            >
               Timesheets
             </Styled.DrawerContentItem>
           </Link>
         </li>
         <li>
           <Link href="/team-members">
-            <Styled.DrawerContentItem>Team members</Styled.DrawerContentItem>
+            <Styled.DrawerContentItem
+              isActive={router.pathname === "/team-members" ? "isActive" : ""}
+            >
+              Team members
+            </Styled.DrawerContentItem>
           </Link>
         </li>
         <li>
           <Link href="/projects">
-            <Styled.DrawerContentItem>Projects</Styled.DrawerContentItem>
+            <Styled.DrawerContentItem isActive={router.pathname === "/projects" ? "isActive" : ""}>
+              Projects
+            </Styled.DrawerContentItem>
           </Link>
         </li>
         <li>
           <Link href="/clients">
-            <Styled.DrawerContentItem>Clients</Styled.DrawerContentItem>
+            <Styled.DrawerContentItem isActive={router.pathname === "/clients" ? "isActive" : ""}>
+              Clients
+            </Styled.DrawerContentItem>
           </Link>
         </li>
         <li>
           <Link href="/document">
-            <Styled.DrawerContentItem>Documents</Styled.DrawerContentItem>
+            <Styled.DrawerContentItem isActive={router.pathname === "/document" ? "isActive" : ""}>
+              Documents
+            </Styled.DrawerContentItem>
           </Link>
         </li>
       </Styled.DrawerContentItemList>

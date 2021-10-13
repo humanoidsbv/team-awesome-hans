@@ -10,19 +10,23 @@ export const TeamMember = styled.div`
   border-top-right-radius: 4px;
   color: #354052;
   display: flex;
-  justify-content: space-between;
-  padding: 24px 0px;
   flex-direction: column;
+  justify-content: space-between;
+  padding: 24px 0;
   width: 100%;
+
+  @media (${({ theme }) => theme.desktop}) {
+    flex-direction: row;
+    padding: 24px 0;
+  }
 `;
 
 export const TeamMemberContainer = styled.div`
+  align-items: center;
   display: flex;
   flex-direction: row;
-  align-items: center;
   justify-content: flex-start;
   padding: 0 16px;
-	margin: 0 16px;
   width: 100%;
 `;
 
@@ -49,27 +53,59 @@ export const TeamMemberRole = styled.span`
 export const TeamMemberDetailButton = styled.button`
   margin-left: auto;
   background: none;
+
+  @media (${({ theme }) => theme.desktop}) {
+    display: none;
+  }
 `;
 
-export const TeamMemberDetails = styled.div`
+export const TeamMemberDetails = styled.div<{ isOpen: boolean }>`
+  display: ${(props) => (props.isOpen ? "flex" : "none")};
+  flex-direction: column;
+  padding: 0 16px;
+  width: 100%;
+
+  @media (${({ theme }) => theme.desktop}) {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+  }
+`;
+
+export const TeamMemberDetailsHeader = styled.div<{ isOpen: boolean }>`
+  align-items: center;
+  background: #f5f8fa;
+  border-bottom: solid 1px #e6eaee;
+  border-top: solid 1px #e6eaee;
+  color: #7f8fa4;
+  display: ${(props) => (props.isOpen ? "flex" : "none")};
+  height: 36px;
+  margin: 16px 0;
+  padding: 0 30px;
+  width: 100%;
+
+  @media (${({ theme }) => theme.desktop}) {
+    display: none;
+  }
+`;
+
+export const TeamMemberDetailWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  width: 100%;
+  margin: 0 0 16px 0;
+  white-space: nowrap;
+
+  @media (${({ theme }) => theme.desktop}) {
+    margin: 0 0 0 54px;
+  }
 `;
 
-export const TeamMemberDetailsHeader = styled.div`
-  background: #f5f8fa;
-  height: 36px;
-  border-top: solid 1px #e6eaee;
-  border-bottom: solid 1px #e6eaee;
-  color: #7f8fa4;
-`;
+export const TeamMemberEmployeeNumber = styled.span``;
 
 export const TeamMemberEmployer = styled.span``;
 
 export const TeamMemberEmployerFooter = styled.span`
   color: #7f8fa4;
-  margin-bottom: 16px;
 `;
 
 export const TeamMemberStartTime = styled.span``;

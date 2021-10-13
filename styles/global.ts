@@ -12,6 +12,7 @@ export const GlobalStyles = createGlobalStyle`
     }
 
     * {
+      box-sizing: border-box;
       font-family: Proxima Nova;
     }
 
@@ -22,5 +23,6 @@ export const GlobalStyles = createGlobalStyle`
 
     button {
       border: none;
+      cursor: pointer;
     }
 `;

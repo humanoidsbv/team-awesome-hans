@@ -1,24 +1,25 @@
 import React, { createContext, useState } from "react";
 
-import { TimeEntryInterface } from "../fixtures/time-entries"
 import { TeamMemberInterface } from "../fixtures/team-members";
+import { TimeEntryInterface } from "../fixtures/time-entries"
 
 interface StoreProviderProps {
   children: React.ReactNode;
 }
 
 interface StoreContextProps {
-  timeEntries: [timeEntries: TimeEntryInterface[], setTimeEntries: Function];
-
+  sortBy: [sortBy: string, setSortBy: Function];
   teamMembers: [teamMembers: TeamMemberInterface[], setTeamMembers: Function];
+  timeEntries: [timeEntries: TimeEntryInterface[], setTimeEntries: Function];
 }
 
 export const StoreContext = createContext<StoreContextProps>(null);
 
 export const StoreProvider = ({ children }: StoreProviderProps) => {
   const store = {
+    sortBy: useState("date-asc"),
+    teamMembers: useState([]),
     timeEntries: useState([]),
-    teamMembers: useState([])
   };
 
   return <StoreContext.Provider value={store}>{children}</StoreContext.Provider>;

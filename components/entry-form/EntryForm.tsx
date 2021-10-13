@@ -3,9 +3,9 @@ import React, { useRef, useState } from "react";
 import * as Styled from "./EntryForm.styled";
 
 interface EntryFormProps {
+  isOpen: boolean;
   onClose: () => void;
   onSubmit: (newTimeEntry: object) => void;
-  isOpen: boolean;
 }
 
 const defaultForm = {
@@ -41,7 +41,6 @@ export const EntryForm = ({ onClose, onSubmit, isOpen }: EntryFormProps) => {
   };
 
   const handleSubmit = (event: React.BaseSyntheticEvent) => {
-    event.preventDefault();
     const formattedTimeEntry = {
       activity: newTimeEntry.activity,
       client: newTimeEntry.employer,
@@ -68,6 +67,7 @@ export const EntryForm = ({ onClose, onSubmit, isOpen }: EntryFormProps) => {
               </button>
             </div>
             <Styled.Input
+              autoComplete="off"
               id="employer"
               isInputValid={isInputValid.employer !== false}
               name="employer"
@@ -76,7 +76,6 @@ export const EntryForm = ({ onClose, onSubmit, isOpen }: EntryFormProps) => {
               placeholder="Employer"
               required
               type="text"
-              autoComplete="off"
             />
           </Styled.TextLabel>
           <Styled.TextLabel htmlFor="activity">

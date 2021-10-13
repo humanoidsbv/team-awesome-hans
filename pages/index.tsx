@@ -7,11 +7,11 @@ import { Header } from "../components/header/Header";
 import { Message } from "../components/message/Message";
 import { minimumWait } from "../services/minimum-wait";
 import { NotFoundError } from "../services/errors";
+import { PageContainer } from "../components/page-container/PageContainer";
 import { StoreContext } from "../context/StoreContext";
 import { TimeEntries } from "../components/time-entries/TimeEntries";
 import { TimeEntryInterface } from "../fixtures/time-entries";
 import Plus from "../public/images/plus-icon.svg";
-import { PageContainer } from "../components/page-container/PageContainer";
 
 const HomePage = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -70,7 +70,7 @@ const HomePage = () => {
       <Header title="Timesheets" subtitle={`${timeEntries?.length} Entries`} />
       <PageContainer>
         {!isOpen && (
-          <Button onClick={handleClick}>
+          <Button type="button" primary onClick={handleClick}>
             <span>New time entry</span>
             <Plus />
           </Button>
