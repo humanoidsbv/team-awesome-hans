@@ -74,7 +74,7 @@
     {
       "address": "Jozef Israelslaan 174",
       "bio": "<3",
-      "city": "Almere",
+      "place": "Almere",
       "emailAddress": "hans.acc@Hotmail.com",
       "employer": "Humanoids",
       "icon": "https://source.unsplash.com/random/50x50?sig=",
@@ -88,7 +88,7 @@
     {
       "address": "test",
       "bio": "test",
-      "city": "test",
+      "place": "test",
       "emailAddress": "test",
       "employer": "Humanoids",
       "icon": "https://source.unsplash.com/random/50x50?sig=",

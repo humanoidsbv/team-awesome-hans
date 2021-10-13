@@ -1,7 +1,7 @@
 export interface TeamMemberInterface {
   address: string;
   bio: string;
-  city: string;
+  place: string;
   emailAddress: string;
   employer: string;
   icon?: string;

@@ -40,7 +40,7 @@ export const TeamMemberForm = ({ handleClick, handleTeamMemberSubmit }: AddTeamM
     const formattedTeamMember = {
       address: newTeamMember.address,
       bio: newTeamMember.bio,
-      city: newTeamMember.city,
+      place: newTeamMember.place,
       emailAddress: newTeamMember.emailAddress,
       employer: "Humanoids",
       icon: "https://source.unsplash.com/random/50x50?sig=",
@@ -148,13 +148,13 @@ export const TeamMemberForm = ({ handleClick, handleTeamMemberSubmit }: AddTeamM
                   type="text"
                 />
               </Styled.Label>
-              <Styled.Label htmlFor="city">
-                City
+              <Styled.Label htmlFor="place">
+                Place
                 <Styled.Input
                   autoComplete="off"
-                  id="city"
-                  isInputValid={isInputValid.city !== false}
-                  name="city"
+                  id="place"
+                  isInputValid={isInputValid.place !== false}
+                  name="place"
                   onBlur={handleBlur}
                   onChange={handleChange}
                   required
