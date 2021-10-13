@@ -25,21 +25,17 @@ export const Button = ({
 }: ButtonProps) => {
   return (
     <>
-      {primary && (
-        <Styled.Primary onClick={onClick} type={type}>
-          {children}
-        </Styled.Primary>
-      )}
-      {secondary && (
-        <Styled.Secondary onClick={onClick} type={type}>
-          {children}
-        </Styled.Secondary>
-      )}
-      {tertiary && (
-        <Styled.Tertiary disabled={disabled} form={form} onClick={onClick} type={type}>
-          {children}
-        </Styled.Tertiary>
-      )}
+      <Styled.Button
+        disabled={disabled}
+        form={form}
+        onClick={onClick}
+        primary={primary}
+        secondary={secondary}
+        tertiary={tertiary}
+        type={type}
+      >
+        {children}
+      </Styled.Button>
     </>
   );
 };

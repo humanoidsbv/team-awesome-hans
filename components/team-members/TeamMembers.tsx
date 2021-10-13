@@ -1,19 +1,19 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 
 import { Button } from "../button/Button";
-import { StoreContext } from "../../context/StoreContext";
 import { TeamMember } from "../team-member/TeamMember";
 import { TeamMemberForm } from "./TeamMemberForm";
 import { TeamMemberInterface } from "../../fixtures/team-members";
 import * as Styled from "./TeamMembers.styled";
 
 interface TeamMemberProps {
+  sortBy: string
+  setSortBy: (targetValue: string) => void;
   handleTeamMemberSubmit: (newTeamMember: object) => void;
   teamMembers: TeamMemberInterface[];
 }
 
-export const TeamMembers = ({ teamMembers, handleTeamMemberSubmit }: TeamMemberProps) => {
-  const [sortBy, setSortBy] = useContext(StoreContext).sortBy;
+export const TeamMembers = ({ handleTeamMemberSubmit, setSortBy, sortBy, teamMembers }: TeamMemberProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
@@ -38,14 +38,14 @@ export const TeamMembers = ({ teamMembers, handleTeamMemberSubmit }: TeamMemberP
                 + New Humanoid
               </Button>
               <Styled.Sort onChange={handleChange} value={sortBy}>
-                <option value="date-asc">date asc</option>
-                <option value="date-desc">date desc</option>
-                <option value="name-asc">name asc</option>
-                <option value="name-desc">name desc</option>
+                <option value="date-asc">date ⬆</option>
+                <option value="date-desc">date ⬇</option>
+                <option value="name-asc">name ⬆</option>
+                <option value="name-desc">name ⬇</option>
               </Styled.Sort>
             </Styled.ButtonWrapper>
           </Styled.TeamMemberHeader>
-          {teamMembers?.map((teamMember) => (
+          {teamMembers.map((teamMember) => (
             <Styled.TeamMemberContainer>
               <TeamMember key={teamMember.id} teamMember={teamMember} />
             </Styled.TeamMemberContainer>

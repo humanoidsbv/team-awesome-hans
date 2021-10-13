@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import Link from "next/link";
-import React, { useState } from "react";
+import React from "react";
 
 import * as Styled from "./DrawerContent.styled";
 
@@ -9,49 +9,42 @@ interface HeaderProps {
 }
 
 export const DrawerContent = ({ isOpen }: HeaderProps) => {
-  const [isActive, setActive] = useState(false);
   const router = useRouter();
-  const handleClick = () => setActive(!isActive);
 
   return (
     <Styled.DrawerContent isOpen={isOpen}>
       <Styled.DrawerContentItemList>
         <li>
           <Link href="/">
-            <Styled.DrawerContentItem
-              isActive={router.pathname === "/" ? "isActive" : ""}
-              onClick={handleClick}
-            >
+            <Styled.DrawerContentItem isActive={router.pathname === "/"}>
               Timesheets
             </Styled.DrawerContentItem>
           </Link>
         </li>
         <li>
           <Link href="/team-members">
-            <Styled.DrawerContentItem
-              isActive={router.pathname === "/team-members" ? "isActive" : ""}
-            >
+            <Styled.DrawerContentItem isActive={router.pathname === "/team-members"}>
               Team members
             </Styled.DrawerContentItem>
           </Link>
         </li>
         <li>
           <Link href="/projects">
-            <Styled.DrawerContentItem isActive={router.pathname === "/projects" ? "isActive" : ""}>
+            <Styled.DrawerContentItem isActive={router.pathname === "/projects"}>
               Projects
             </Styled.DrawerContentItem>
           </Link>
         </li>
         <li>
           <Link href="/clients">
-            <Styled.DrawerContentItem isActive={router.pathname === "/clients" ? "isActive" : ""}>
+            <Styled.DrawerContentItem isActive={router.pathname === "/clients"}>
               Clients
             </Styled.DrawerContentItem>
           </Link>
         </li>
         <li>
           <Link href="/document">
-            <Styled.DrawerContentItem isActive={router.pathname === "/document" ? "isActive" : ""}>
+            <Styled.DrawerContentItem isActive={router.pathname === "/document"}>
               Documents
             </Styled.DrawerContentItem>
           </Link>

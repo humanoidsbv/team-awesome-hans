@@ -1,20 +1,10 @@
 import { NotFoundError } from "./errors";
 
 export const getTeamMembers = async (sortBy: string) => {
-  let urlParameters;
-  if (sortBy === "date-asc") {
-    urlParameters = "?_sort=startTime&_order=asc";
-  }
-  if (sortBy === "date-desc") {
-    urlParameters = "?_sort=startTime&_order=desc";
-  }
-  if (sortBy === "name-asc") {
-    urlParameters = "?_sort=name&_order=asc";
-  }
-  if (sortBy === "name-desc") {
-    urlParameters = "?_sort=name&_order=desc";
-  }
-  return fetch(`http://localhost:3004/team-members${urlParameters}`)
+  const order = sortBy.split("-")[1];
+  const sort = sortBy.split("-")[0];
+
+  return fetch(`http://localhost:3004/team-members?_sort=${sort}&_order=${order}`)
     .then((response) => {
       if (response.status === 404) {
         throw new NotFoundError(response.toString());

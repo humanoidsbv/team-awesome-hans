@@ -8,7 +8,6 @@ interface StoreProviderProps {
 }
 
 interface StoreContextProps {
-  sortBy: [sortBy: string, setSortBy: Function];
   teamMembers: [teamMembers: TeamMemberInterface[], setTeamMembers: Function];
   timeEntries: [timeEntries: TimeEntryInterface[], setTimeEntries: Function];
 }
@@ -17,7 +16,6 @@ export const StoreContext = createContext<StoreContextProps>(null);
 
 export const StoreProvider = ({ children }: StoreProviderProps) => {
   const store = {
-    sortBy: useState("date-asc"),
     teamMembers: useState([]),
     timeEntries: useState([]),
   };

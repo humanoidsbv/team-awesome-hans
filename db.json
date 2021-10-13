@@ -34,6 +34,13 @@
       "startTime": "2021-10-11T07:00:00.000Z",
       "endTime": "2021-10-11T15:00:00.000Z",
       "id": 10
+    },
+    {
+      "activity": "test",
+      "client": "test",
+      "startTime": "2021-10-13T07:00:00.000Z",
+      "endTime": "2021-10-13T15:00:00.000Z",
+      "id": 11
     }
   ],
   "team-members": [
@@ -64,19 +71,32 @@
       "employer": "Humanoids",
       "number": "HUM_3"
     },
-
     {
-      "adress": "Jozef Israelslaan 174",
+      "address": "Jozef Israelslaan 174",
       "bio": "<3",
       "city": "Almere",
-      "email": "hans.acc@Hotmail.com",
+      "emailAddress": "hans.acc@Hotmail.com",
       "employer": "Humanoids",
       "icon": "https://source.unsplash.com/random/50x50?sig=",
       "name": "Hans Charbon",
       "number": "HUM_4",
       "role": "Front-end Developer/UX Designer",
       "startTime": "2021-10-13T07:58:24.831Z",
-      "zip": "1328ck",
+      "postalCode": "1328ck",
+      "id": 4
+    },
+    {
+      "address": "test",
+      "bio": "test",
+      "city": "test",
+      "emailAddress": "test",
+      "employer": "Humanoids",
+      "icon": "https://source.unsplash.com/random/50x50?sig=",
+      "name": "Test test",
+      "number": "HUM_5",
+      "postalCode": "teset",
+      "role": "Front-end Developer/UX Designer",
+      "startTime": "2021-10-13T12:46:31.117Z",
       "id": 5
     }
   ]

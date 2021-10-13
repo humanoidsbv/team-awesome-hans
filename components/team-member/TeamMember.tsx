@@ -23,33 +23,36 @@ export const TeamMember = ({ teamMember }: TeamMemberProps) => {
 
   return (
     <Styled.TeamMember>
+
       <Styled.TeamMemberContainer onClick={handleClick}>
-        <Styled.TeamMemberIcon src={icon} />
-        <Styled.TeamMemberNameWrapper>
-          <Styled.TeamMemberName>{teamMember.name}</Styled.TeamMemberName>
-          <Styled.TeamMemberRole>{teamMember.role}</Styled.TeamMemberRole>
-        </Styled.TeamMemberNameWrapper>
-        <Styled.TeamMemberDetailButton>
+        <Styled.Icon src={icon} />
+        <Styled.NameWrapper>
+          <Styled.Name>{teamMember.name}</Styled.Name>
+          <Styled.Role>{teamMember.role}</Styled.Role>
+        </Styled.NameWrapper>
+        <Styled.DetailButton>
           <ArrowDown />
-        </Styled.TeamMemberDetailButton>
+        </Styled.DetailButton>
       </Styled.TeamMemberContainer>
-      <Styled.TeamMemberDetailsHeader isOpen={isOpen}>
+
+      <Styled.DetailsHeader isOpen={isOpen}>
         Detailed information about {teamMember.name}
-      </Styled.TeamMemberDetailsHeader>
-      <Styled.TeamMemberDetails isOpen={isOpen}>
-        <Styled.TeamMemberDetailWrapper>
-          <Styled.TeamMemberEmployeeNumber>{teamMember.number}</Styled.TeamMemberEmployeeNumber>
-          <Styled.TeamMemberEmployerFooter>Employee number</Styled.TeamMemberEmployerFooter>
-        </Styled.TeamMemberDetailWrapper>
-        <Styled.TeamMemberDetailWrapper>
-          <Styled.TeamMemberEmployeeNumber>{teamMember.employer}</Styled.TeamMemberEmployeeNumber>
-          <Styled.TeamMemberEmployerFooter>Current employer</Styled.TeamMemberEmployerFooter>
-        </Styled.TeamMemberDetailWrapper>
-        <Styled.TeamMemberDetailWrapper>
-          <Styled.TeamMemberStartTime>{getDate(teamMember.startTime)}</Styled.TeamMemberStartTime>
-          <Styled.TeamMemberStartingDateFooter>Starting date</Styled.TeamMemberStartingDateFooter>
-        </Styled.TeamMemberDetailWrapper>
-      </Styled.TeamMemberDetails>
+      </Styled.DetailsHeader>
+      
+      <Styled.Details isOpen={isOpen}>
+        <Styled.DetailWrapper>
+          <span>{teamMember.number}</span>
+          <Styled.EmployerFooter>Employee number</Styled.EmployerFooter>
+        </Styled.DetailWrapper>
+        <Styled.DetailWrapper>
+          <span>{teamMember.employer}</span>
+          <Styled.EmployerFooter>Current employer</Styled.EmployerFooter>
+        </Styled.DetailWrapper>
+        <Styled.DetailWrapper>
+          <span>{getDate(teamMember.startTime)}</span>
+          <Styled.StartingDateFooter>Starting date</Styled.StartingDateFooter>
+        </Styled.DetailWrapper>
+      </Styled.Details>
     </Styled.TeamMember>
   );
 };

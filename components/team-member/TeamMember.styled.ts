@@ -30,36 +30,36 @@ export const TeamMemberContainer = styled.div`
   width: 100%;
 `;
 
-export const TeamMemberIcon = styled.img`
+export const Icon = styled.img`
   border-radius: 90px;
   margin-right: 25px;
 `;
 
-export const TeamMemberNameWrapper = styled.div`
+export const NameWrapper = styled.div`
   display: flex;
   flex-direction: column;
 `;
 
-export const TeamMemberName = styled.span`
-  white-space: nowrap;
+export const Name = styled.span`
   margin-bottom: 2px;
-`;
-
-export const TeamMemberRole = styled.span`
   white-space: nowrap;
-  color: #7f8fa4;
 `;
 
-export const TeamMemberDetailButton = styled.button`
-  margin-left: auto;
+export const Role = styled.span`
+  color: #7f8fa4;
+  white-space: nowrap;
+`;
+
+export const DetailButton = styled.button`
   background: none;
+  margin-left: auto;
 
   @media (${({ theme }) => theme.desktop}) {
     display: none;
   }
 `;
 
-export const TeamMemberDetails = styled.div<{ isOpen: boolean }>`
+export const Details = styled.div<{ isOpen: boolean }>`
   display: ${(props) => (props.isOpen ? "flex" : "none")};
   flex-direction: column;
   padding: 0 16px;
@@ -72,7 +72,7 @@ export const TeamMemberDetails = styled.div<{ isOpen: boolean }>`
   }
 `;
 
-export const TeamMemberDetailsHeader = styled.div<{ isOpen: boolean }>`
+export const DetailsHeader = styled.div<{ isOpen: boolean }>`
   align-items: center;
   background: #f5f8fa;
   border-bottom: solid 1px #e6eaee;
@@ -89,7 +89,7 @@ export const TeamMemberDetailsHeader = styled.div<{ isOpen: boolean }>`
   }
 `;
 
-export const TeamMemberDetailWrapper = styled.div`
+export const DetailWrapper = styled.div`
   display: flex;
   flex-direction: column;
   margin: 0 0 16px 0;
@@ -100,16 +100,10 @@ export const TeamMemberDetailWrapper = styled.div`
   }
 `;
 
-export const TeamMemberEmployeeNumber = styled.span``;
-
-export const TeamMemberEmployer = styled.span``;
-
-export const TeamMemberEmployerFooter = styled.span`
+export const EmployerFooter = styled.span`
   color: #7f8fa4;
 `;
 
-export const TeamMemberStartTime = styled.span``;
-
-export const TeamMemberStartingDateFooter = styled.span`
+export const StartingDateFooter = styled.span`
   color: #7f8fa4;
 `;

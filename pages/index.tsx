@@ -40,8 +40,7 @@ const HomePage = () => {
   }
 
   useEffect(() => {
-    setIsLoading(true);
-    minimumWait(fetchTimeEntries, () => setIsLoading(false), 500);
+    fetchTimeEntries();
   }, []);
 
   const handleClick = () => {

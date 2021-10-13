@@ -1,14 +1,14 @@
 export interface TeamMemberInterface {
-  adress: string;
+  address: string;
   bio: string;
   city: string;
-  email: string;
+  emailAddress: string;
   employer: string;
   icon?: string;
   id?: number;
   name: string;
   number: string;
+  postalCode: string;
   role: string;
   startTime: string;
-  zip: string;
 }

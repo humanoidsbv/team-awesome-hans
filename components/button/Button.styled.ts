@@ -1,63 +1,50 @@
 import styled from "styled-components";
 
-export const Primary = styled.button`
+interface ButtonProps {
+  primary: boolean;
+  secondary: boolean;
+  tertiary: boolean;
+}
+
+export const Button = styled.button<ButtonProps>`
   align-items: center;
-  background-image: linear-gradient(#39b54a, #34aa44);
-  border: solid 1px #249533;
   border-radius: 4px;
   color: white;
-  display: flex;
-  font-size: 14px;
-  justify-content: center;
-  padding: 10px;
-  width: 100%;
-
-  span {
-    flex: 1;
-  }
-
-  @media (${({ theme }) => theme.desktop}) {
-    display: none;
-  }
-`;
-
-export const Secondary = styled.button`
-  align-items: center;
-  background: #f5f7f9;
-  border: solid 1px #ced0da;
-  border-radius: 4px;
-  color: #4b5464;
   display: none;
   font-size: 14px;
   height: 36px;
   justify-content: center;
   width: 140px;
 
-  span {
-    flex: 1;
-  }
-
-  @media (${({ theme }) => theme.desktop}) {
+  ${(props) =>
+    props.primary &&
+    `
+    background-image: linear-gradient(#39b54a, #34aa44);
+    border: solid 1px #249533;
     display: flex;
-  }
-`;
+    padding: 10px;
+    width: 100%;
 
-export const Tertiary = styled.button<{ disabled: boolean }>`
-  align-items: center;
-  background-image: linear-gradient(#39b54a, #34aa44);
-  border: solid 1px #249533;
-  border-radius: 4px;
-  color: white;
-  display: none;
-  font-size: 14px;
-  height: 36px;
-  justify-content: center;
-  margin-left: 16px;
-  width: 140px;
+    @media (${({ theme }) => theme.desktop}) {
+        display: none;
+      }
+    `}
 
-  span {
-    flex: 1;
-  }
+  ${(props) =>
+    props.secondary &&
+    `
+    background: #f5f7f9;
+    border: solid 1px #ced0da;
+    color: #4b5464;
+    `}
+
+    ${(props) =>
+    props.tertiary &&
+    `
+    background-image: linear-gradient(#39b54a, #34aa44);
+    border: solid 1px #249533;
+    margin-left: 16px;
+    `}
 
   ${(props) =>
     props.disabled &&
@@ -67,7 +54,27 @@ export const Tertiary = styled.button<{ disabled: boolean }>`
       color: #666666;
     `}
 
+  span {
+    flex: 1;
+  }
+
   @media (${({ theme }) => theme.desktop}) {
-    display: flex;
+    ${(props) =>
+      props.primary &&
+      `
+      display: none;
+      `}
+
+    ${(props) =>
+      props.secondary &&
+      `
+      display: flex;
+      `}
+
+    ${(props) =>
+      props.tertiary &&
+      `
+      display: flex;
+      `}
   }
 `;

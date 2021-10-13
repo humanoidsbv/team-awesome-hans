@@ -150,7 +150,7 @@ export const NameWrapper = styled.div`
   justify-content: space-between;
 `;
 
-export const AdressWrapper = styled.div`
+export const AddressWrapper = styled.div`
   display: flex;
   flex-direction: row;
   gap: 10px;

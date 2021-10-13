@@ -14,7 +14,7 @@ const TeamMemberPage = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [teamMembers, setTeamMembers] = useContext(StoreContext).teamMembers;
   const [teamMembersMessage, setTeamMemberMessage] = useState<string>();
-  const [sortBy] = useContext(StoreContext).sortBy;
+  const [sortBy, setSortBy] = useState("date-asc");
 
   async function fetchTeamMembers() {
     const response = await getTeamMembers(sortBy);
@@ -31,8 +31,8 @@ const TeamMemberPage = () => {
       setIsLoading(false);
       return Promise.reject();
     }
-    setTeamMembers(response);
 
+    setTeamMembers(response);
     return response;
   }
 
@@ -51,13 +51,7 @@ const TeamMemberPage = () => {
   };
 
   useEffect(() => {
-    setIsLoading(true);
-    minimumWait(fetchTeamMembers, () => setIsLoading(false), 500);
-  }, []);
-
-  useEffect(() => {
-    setIsLoading(true);
-    minimumWait(fetchTeamMembers, () => setIsLoading(false), 500);
+    fetchTeamMembers();
   }, [sortBy]);
 
   return (
@@ -66,7 +60,12 @@ const TeamMemberPage = () => {
       <PageContainer>
         {isLoading && <Message message="Loading Team Members..." />}
         {!isLoading && (
-          <TeamMembers handleTeamMemberSubmit={handleTeamMemberSubmit} teamMembers={teamMembers} />
+          <TeamMembers
+            handleTeamMemberSubmit={handleTeamMemberSubmit}
+            setSortBy={setSortBy}
+            sortBy={sortBy}
+            teamMembers={teamMembers}
+          />
         )}
         {!teamMembers.length && <Message message={teamMembersMessage} />}
       </PageContainer>

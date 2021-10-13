@@ -38,17 +38,17 @@ export const TeamMemberForm = ({ handleClick, handleTeamMemberSubmit }: AddTeamM
 
   const handleSubmit = (event: React.BaseSyntheticEvent) => {
     const formattedTeamMember = {
-      adress: newTeamMember.adress,
+      address: newTeamMember.address,
       bio: newTeamMember.bio,
       city: newTeamMember.city,
-      email: newTeamMember.email,
+      emailAddress: newTeamMember.emailAddress,
       employer: "Humanoids",
       icon: "https://source.unsplash.com/random/50x50?sig=",
       name: `${newTeamMember.firstName} ${newTeamMember.lastName}`,
       number: "HUM_",
+      postalCode: newTeamMember.postalCode,
       role: "Front-end Developer/UX Designer",
       startTime: new Date().toISOString(),
-      zip: newTeamMember.zip,
     };
     handleTeamMemberSubmit(formattedTeamMember);
     event.target.reset();
@@ -62,10 +62,10 @@ export const TeamMemberForm = ({ handleClick, handleTeamMemberSubmit }: AddTeamM
       <Styled.TeamMemberHeader>
         <Styled.TeamMembersTitle>Add new team member</Styled.TeamMembersTitle>
         <Styled.ButtonWrapper>
-          <Button type="button" secondary onClick={handleClick}>
+          <Button onClick={handleClick} secondary type="button">
             Cancel
           </Button>
-          <Button form="team-member-form" disabled={!isFormValid} type="submit" tertiary>
+          <Button disabled={!isFormValid} form="team-member-form" tertiary type="submit">
             Save
           </Button>
         </Styled.ButtonWrapper>
@@ -106,13 +106,13 @@ export const TeamMemberForm = ({ handleClick, handleTeamMemberSubmit }: AddTeamM
                 />
               </Styled.Label>
             </Styled.NameWrapper>
-            <Styled.Label htmlFor="email">
-              E-mail Address
+            <Styled.Label htmlFor="emailAddress">
+              Email Address
               <Styled.Input
                 autoComplete="off"
-                id="email"
-                isInputValid={isInputValid.email !== false}
-                name="email"
+                id="emailAddress"
+                isInputValid={isInputValid.emailAddress !== false}
+                name="emailAddress"
                 onBlur={handleBlur}
                 onChange={handleChange}
                 required
@@ -134,14 +134,14 @@ export const TeamMemberForm = ({ handleClick, handleTeamMemberSubmit }: AddTeamM
           </Styled.FormLeftWrapper>
           <Styled.Divider />
           <Styled.FormRightWrapper>
-            <Styled.AdressWrapper>
-              <Styled.Label htmlFor="zip">
-                ZIP code
+            <Styled.AddressWrapper>
+              <Styled.Label htmlFor="postalCode">
+                Postal Code
                 <Styled.Input
                   autoComplete="off"
-                  id="zip"
-                  isInputValid={isInputValid.zip !== false}
-                  name="zip"
+                  id="postalCode"
+                  isInputValid={isInputValid.postalCode !== false}
+                  name="postalCode"
                   onBlur={handleBlur}
                   onChange={handleChange}
                   required
@@ -161,14 +161,14 @@ export const TeamMemberForm = ({ handleClick, handleTeamMemberSubmit }: AddTeamM
                   type="text"
                 />
               </Styled.Label>
-            </Styled.AdressWrapper>
-            <Styled.Label htmlFor="adress">
-              Adress
+            </Styled.AddressWrapper>
+            <Styled.Label htmlFor="address">
+              Address
               <Styled.Input
                 autoComplete="off"
-                id="adress"
-                isInputValid={isInputValid.adress !== false}
-                name="adress"
+                id="address"
+                isInputValid={isInputValid.address !== false}
+                name="address"
                 onBlur={handleBlur}
                 onChange={handleChange}
                 required
