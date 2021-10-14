@@ -9,15 +9,15 @@ interface StyledTimeEntryProps {
 export const TimeEntry = styled.div<StyledTimeEntryProps>`
   align-items: center;
   background-color: #fff;
+  border: solid 1px #e6eaee;
   border-bottom-right-radius: 4px;
   border-left: 0;
   border-top-right-radius: 4px;
-  border: solid 1px #e6eaee;
   color: #354052;
   display: flex;
   height: 30px;
   justify-content: space-between;
-  padding: 24px 16px;
+  padding: 32px 16px;
 
   ${(props) =>
     props.isBottom &&

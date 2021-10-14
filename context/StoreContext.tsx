@@ -1,5 +1,6 @@
 import React, { createContext, useState } from "react";
 
+import { TeamMemberInterface } from "../fixtures/team-members";
 import { TimeEntryInterface } from "../fixtures/time-entries"
 
 interface StoreProviderProps {
@@ -7,16 +8,15 @@ interface StoreProviderProps {
 }
 
 interface StoreContextProps {
-  timeEntries: [
-    timeEntries: TimeEntryInterface[],
-    setTimeEntries: Function
-  ];
+  teamMembers: [teamMembers: TeamMemberInterface[], setTeamMembers: Function];
+  timeEntries: [timeEntries: TimeEntryInterface[], setTimeEntries: Function];
 }
 
 export const StoreContext = createContext<StoreContextProps>(null);
 
 export const StoreProvider = ({ children }: StoreProviderProps) => {
   const store = {
+    teamMembers: useState([]),
     timeEntries: useState([]),
   };
 

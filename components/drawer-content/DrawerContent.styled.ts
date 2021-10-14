@@ -34,7 +34,7 @@ export const DrawerContentItemList = styled.ul`
 `;
 
 export const DrawerContentItem = styled.a<{ isActive?: boolean }>`
-  background-color: ${(props) => (props.isActive ? "hotpink" : "none")};
+  background-color: ${(props) => (props.isActive ? "#1166a5" : "none")};
   border-radius: ${(props) => (props.isActive ? "4px" : "none")};
   color: white;
   display: inline-block;

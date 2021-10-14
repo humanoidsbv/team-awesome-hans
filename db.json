@@ -27,6 +27,77 @@
       "startTime": "2021-10-08T07:00:00.000Z",
       "endTime": "2021-10-08T15:00:00.000Z",
       "id": 9
+    },
+    {
+      "activity": "yee",
+      "client": "humanoids",
+      "startTime": "2021-10-11T07:00:00.000Z",
+      "endTime": "2021-10-11T15:00:00.000Z",
+      "id": 10
+    },
+    {
+      "activity": "test",
+      "client": "test",
+      "startTime": "2021-10-13T07:00:00.000Z",
+      "endTime": "2021-10-13T15:00:00.000Z",
+      "id": 11
+    }
+  ],
+  "team-members": [
+    {
+      "name": "Hans Charbon",
+      "role": "Front-end Developer",
+      "startTime": "2021-09-08T07:01:00.000Z",
+      "icon": "https://source.unsplash.com/random/50x50?sig=",
+      "id": 1,
+      "employer": "Humanoids",
+      "number": "HUM_1"
+    },
+    {
+      "name": "Maurice Markslag",
+      "role": "Front-end Developer",
+      "startTime": "2021-09-09T07:01:00.000Z",
+      "icon": "https://source.unsplash.com/random/50x50?sig=",
+      "id": 2,
+      "employer": "Humanoids",
+      "number": "HUM_2"
+    },
+    {
+      "name": "Sara van den Berg",
+      "role": "Front-end Developer",
+      "startTime": "2021-09-10T07:01:00.000Z",
+      "icon": "https://source.unsplash.com/random/50x50?sig=",
+      "id": 3,
+      "employer": "Humanoids",
+      "number": "HUM_3"
+    },
+    {
+      "address": "Jozef Israelslaan 174",
+      "bio": "<3",
+      "place": "Almere",
+      "emailAddress": "hans.acc@Hotmail.com",
+      "employer": "Humanoids",
+      "icon": "https://source.unsplash.com/random/50x50?sig=",
+      "name": "Hans Charbon",
+      "number": "HUM_4",
+      "role": "Front-end Developer/UX Designer",
+      "startTime": "2021-10-13T07:58:24.831Z",
+      "postalCode": "1328ck",
+      "id": 4
+    },
+    {
+      "address": "test",
+      "bio": "test",
+      "place": "test",
+      "emailAddress": "test",
+      "employer": "Humanoids",
+      "icon": "https://source.unsplash.com/random/50x50?sig=",
+      "name": "Test test",
+      "number": "HUM_5",
+      "postalCode": "teset",
+      "role": "Front-end Developer/UX Designer",
+      "startTime": "2021-10-13T12:46:31.117Z",
+      "id": 5
     }
   ]
 }
