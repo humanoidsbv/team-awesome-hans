@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 interface ButtonProps {
   primary: boolean;
@@ -18,37 +18,37 @@ export const Button = styled.button<ButtonProps>`
 
   ${(props) =>
     props.primary &&
-    `
-    background-image: linear-gradient(#39b54a, #34aa44);
-    border: solid 1px #249533;
-    display: flex;
-    padding: 10px;
-    width: 100%;
+    css`
+      background-image: linear-gradient(#39b54a, #34aa44);
+      border: solid 1px #249533;
+      display: flex;
+      padding: 10px;
+      width: 100%;
 
-    @media (${({ theme }) => theme.desktop}) {
+      @media (${({ theme }) => theme.desktop}) {
         display: none;
       }
     `}
 
   ${(props) =>
     props.secondary &&
-    `
-    background: #f5f7f9;
-    border: solid 1px #ced0da;
-    color: #4b5464;
+    css`
+      background: #f5f7f9;
+      border: solid 1px #ced0da;
+      color: #4b5464;
     `}
 
     ${(props) =>
     props.tertiary &&
-    `
-    background-image: linear-gradient(#39b54a, #34aa44);
-    border: solid 1px #249533;
-    margin-left: 16px;
+    css`
+      background-image: linear-gradient(#39b54a, #34aa44);
+      border: solid 1px #249533;
+      margin-left: 16px;
     `}
 
   ${(props) =>
     props.disabled &&
-    `
+    css`
       background: #cccccc;
       border: 1px solid #999999;
       color: #666666;
@@ -61,20 +61,20 @@ export const Button = styled.button<ButtonProps>`
   @media (${({ theme }) => theme.desktop}) {
     ${(props) =>
       props.primary &&
-      `
-      display: none;
+      css`
+        display: none;
       `}
 
     ${(props) =>
       props.secondary &&
-      `
-      display: flex;
+      css`
+        display: flex;
       `}
 
     ${(props) =>
       props.tertiary &&
-      `
-      display: flex;
+      css`
+        display: flex;
       `}
   }
 `;
