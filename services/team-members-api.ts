@@ -4,7 +4,7 @@ export const getTeamMembers = async (sortBy: string) => {
   const order = sortBy.split("-")[1];
   const sort = sortBy.split("-")[0];
 
-  return fetch(`http://localhost:3004/team-members?_sort=${sort}&_order=${order}`)
+  return fetch(`${process.env.NEXT_PUBLIC_DB_HOST}/team-members?_sort=${sort}&_order=${order}`)
     .then((response) => {
       if (response.status === 404) {
         throw new NotFoundError(response.toString());
@@ -16,7 +16,7 @@ export const getTeamMembers = async (sortBy: string) => {
 };
 
 export const postTeamMember = async (newTeamMember: object) => {
-  fetch("http://localhost:3004/team-members", {
+  fetch(`${process.env.NEXT_PUBLIC_DB_HOST}/team-members`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
