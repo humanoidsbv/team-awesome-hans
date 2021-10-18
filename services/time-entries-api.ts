@@ -1,7 +1,7 @@
 import { NotFoundError } from "./errors";
 
 export const getTimeEntries = async () => {
-  return fetch("http://localhost:3004/time-entries?_sort=startTime&_order=asc")
+  return fetch(`${process.env.NEXT_PUBLIC_DB_HOST}/time-entries?_sort=startTime&_order=asc`)
     .then((response) => {
       if (response.status === 404) {
         throw new NotFoundError(response.toString());
@@ -13,7 +13,7 @@ export const getTimeEntries = async () => {
 };
 
 export const postTimeEntry = async (newTimeEntry: object) => {
-  fetch("http://localhost:3004/time-entries", {
+  fetch(`${process.env.NEXT_PUBLIC_DB_HOST}/time-entries`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -31,7 +31,7 @@ export const postTimeEntry = async (newTimeEntry: object) => {
 };
 
 export const deleteTimeEntry = async (id: number) => {
-  fetch(`http://localhost:3004/time-entries/${id}`, {
+  fetch(`${process.env.NEXT_PUBLIC_DB_HOST}/time-entries/${id}`, {
     method: "DELETE",
   })
     .then((response) => {
