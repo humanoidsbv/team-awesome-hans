@@ -23,7 +23,6 @@ export const TeamMember = ({ teamMember }: TeamMemberProps) => {
 
   return (
     <Styled.TeamMember>
-
       <Styled.TeamMemberContainer onClick={handleClick}>
         <Styled.Icon src={icon} />
         <Styled.NameWrapper>
@@ -36,9 +35,9 @@ export const TeamMember = ({ teamMember }: TeamMemberProps) => {
       </Styled.TeamMemberContainer>
 
       <Styled.DetailsHeader isOpen={isOpen}>
-        Detailed information about {teamMember.name}
+        Detailed information about {teamMember.name} {/* eslint-disable-line */}
       </Styled.DetailsHeader>
-      
+
       <Styled.Details isOpen={isOpen}>
         <Styled.DetailWrapper>
           <span>{teamMember.number}</span>
