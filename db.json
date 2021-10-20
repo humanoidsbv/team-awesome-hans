@@ -15,32 +15,18 @@
       "id": 4
     },
     {
-      "activity": "yeee",
-      "client": "dammie",
-      "startTime": "2021-10-08T07:00:00.000Z",
-      "endTime": "2021-10-08T15:00:00.000Z",
-      "id": 8
-    },
-    {
       "activity": "yeye",
-      "client": "Damsko",
+      "client": "Flow",
       "startTime": "2021-10-08T07:00:00.000Z",
       "endTime": "2021-10-08T15:00:00.000Z",
       "id": 9
     },
     {
       "activity": "yee",
-      "client": "humanoids",
+      "client": "Humanoids",
       "startTime": "2021-10-11T07:00:00.000Z",
       "endTime": "2021-10-11T15:00:00.000Z",
       "id": 10
-    },
-    {
-      "activity": "test",
-      "client": "test",
-      "startTime": "2021-10-13T07:00:00.000Z",
-      "endTime": "2021-10-13T15:00:00.000Z",
-      "id": 11
     }
   ],
   "team-members": [
@@ -98,6 +84,20 @@
       "role": "Front-end Developer/UX Designer",
       "startTime": "2021-10-13T12:46:31.117Z",
       "id": 5
+    }
+  ],
+  "clients": [
+    {
+      "name": "Port of Rotterdam",
+      "id": 1
+    },
+    {
+      "name": "Flow",
+      "id": 2
+    },
+    {
+      "name": "Humanoids",
+      "id": 3
     }
   ]
 }
