@@ -5,5 +5,5 @@ export const EntryDate = styled.span`
   font-family: "Proxima Nova";
   font-size: 16px;
   padding-bottom: 16px;
-  padding-top: 32px;
+  padding-top: 16px;
 `;
