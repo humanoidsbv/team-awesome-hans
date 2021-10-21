@@ -24,7 +24,7 @@ const HomePage = () => {
   const [clients, setClients] = useState([]);
   const [clientFilter, setClientFilter] = useState("");
 
-  async function fetchTimeEntries() {
+  const fetchTimeEntries = async () => {
     const response = await getTimeEntries();
 
     if (response instanceof NotFoundError) {
@@ -42,9 +42,9 @@ const HomePage = () => {
     setTimeEntries(response);
 
     return response;
-  }
+  };
 
-  async function fetchClients() {
+  const fetchClients = async () => {
     const response = await getClients();
 
     if (response instanceof NotFoundError) {
@@ -56,7 +56,7 @@ const HomePage = () => {
     setClients(response);
 
     return response;
-  }
+  };
 
   const handleClick = () => {
     setIsOpen(!isOpen);
@@ -95,7 +95,7 @@ const HomePage = () => {
 
   useEffect(() => {
     filterTimeEntries(timeEntries);
-  }, [clientFilter]);
+  }, [clientFilter, timeEntries]);
 
   return (
     <>
@@ -110,7 +110,9 @@ const HomePage = () => {
         <EntryForm isOpen={isOpen} onClose={handleClick} onSubmit={handleTimeEntrySubmit} />
         <Select handleFilter={setClientFilter}>
           {clients?.map((client) => (
-            <option value={client.name}>{client.name}</option>
+            <option value={client.name} key={client.id}>
+              {client.name}
+            </option>
           ))}
         </Select>
         {isLoading && <Message message="Loading Time Entries..." />}

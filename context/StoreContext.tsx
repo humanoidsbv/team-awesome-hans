@@ -1,7 +1,7 @@
 import React, { createContext, useState } from "react";
 
 import { TeamMemberInterface } from "../fixtures/team-members";
-import { TimeEntryInterface } from "../fixtures/time-entries"
+import { TimeEntryInterface } from "../fixtures/time-entries";
 
 interface StoreProviderProps {
   children: React.ReactNode;
