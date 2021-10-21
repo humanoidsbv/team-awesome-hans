@@ -9,7 +9,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "eslint": "eslint . --ext .js,.jsx,.ts,.tsx"
+    "eslint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -22,6 +23,7 @@
   },
   "homepage": "https://github.com/humanoidsbv/team-awesome-hans#readme",
   "dependencies": {
+    "json-server": "^0.17.0",
     "next": "^11.1.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
@@ -30,15 +32,18 @@
   "devDependencies": {
     "@humanoids/eslint-config": "^0.0.11",
     "@humanoids/prettier-config": "0.0.4",
-    "@types/jest": "^27.0.1",
+    "@types/jest": "^27.0.2",
     "@types/node": "^16.9.4",
     "@types/react": "^17.0.22",
     "@types/react-dom": "^17.0.9",
     "@types/styled-components": "^5.1.14",
+    "babel-jest": "^27.3.1",
     "babel-plugin-inline-react-svg": "^2.0.1",
     "eslint": "^7.32.0",
     "eslint-plugin-react-hooks": "^4.2.0",
+    "jest": "^27.3.1",
     "prettier": "2.4.1",
+    "ts-jest": "^27.0.7",
     "typescript": "^4.4.3"
   }
 }

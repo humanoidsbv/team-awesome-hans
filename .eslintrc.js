@@ -5,4 +5,7 @@ module.exports = {
     "@typescript-eslint/no-explicit-any": "warn",
     "@typescript-eslint/no-unused-vars": "error",
   },
+  env: {
+    jest: true,
+  },
 };
