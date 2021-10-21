@@ -8,5 +8,7 @@ interface HeaderProps {
 }
 
 export const DrawerButton = ({ isOpen, onClick }: HeaderProps) => {
-  return <Styled.DrawerButton onClick={() => onClick(isOpen)} isOpen={isOpen} />;
+  return (
+    <Styled.DrawerButton data-cy="drawer-button" onClick={() => onClick(isOpen)} isOpen={isOpen} />
+  );
 };
