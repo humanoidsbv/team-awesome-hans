@@ -1,15 +1,6 @@
 import { getTimeEntries } from "../time-entries-api";
+import { mockedTimeEntries } from "../../__mocks__/mocked-time-entries";
 import { NotFoundError } from "../errors";
-
-const mockedTimeEntries = [
-  {
-    activity: "bootje varen",
-    client: "Port of Rotterdam",
-    startTime: "2021-10-08T07:01:00.000Z",
-    endTime: "2021-10-08T15:00:00.000Z",
-    id: 2,
-  },
-];
 
 test("it fetches TimeEntries from the server", async () => {
   const mockFetchPromise = Promise.resolve({
@@ -27,7 +18,7 @@ test("it fetches TimeEntries from the server", async () => {
   );
 });
 
-test("it returns empty when exception", async () => {
+test("it returns a notFoundError instance when exception", async () => {
   const error = new NotFoundError("error");
   global.fetch = jest.fn().mockImplementationOnce(() => Promise.reject(error));
 
