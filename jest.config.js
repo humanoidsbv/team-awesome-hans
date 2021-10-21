@@ -8,7 +8,6 @@ module.exports = {
       statements: 100,
     },
   },
-  setupFiles: ["<rootDir>/jest.setup.js"],
   preset: "ts-jest",
   testPathIgnorePatterns: [
     "/.next/",
