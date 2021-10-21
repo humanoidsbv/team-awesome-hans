@@ -23,7 +23,10 @@ export const DrawerContent = ({ isOpen }: HeaderProps) => {
         </li>
         <li>
           <Link href="/team-members">
-            <Styled.DrawerContentItem isActive={router.pathname === "/team-members"}>
+            <Styled.DrawerContentItem
+              data-cy="team-members-page"
+              isActive={router.pathname === "/team-members"}
+            >
               Team members
             </Styled.DrawerContentItem>
           </Link>
